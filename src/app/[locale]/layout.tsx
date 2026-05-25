@@ -21,7 +21,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   const t = await getTranslations({ locale, namespace: "Layout" });
 
   return (
-    <NextIntlClientProvider messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={messages}>
       <a href="#main-content" className="skip-link">
         {t("skipToContent")}
       </a>

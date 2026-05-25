@@ -1,12 +1,19 @@
 "use client";
 import { useLocale, useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
+import { usePathname as useNextPathname } from "next/navigation";
+import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 
 export default function LocaleSwitcher() {
   const locale = useLocale();
-  const pathname = usePathname();
+  // Raw Next.js pathname includes the locale prefix, e.g. "/it/menu"
+  const rawPathname = useNextPathname();
   const t = useTranslations("Nav");
+
+  // Strip the locale segment so Link can add the target locale cleanly
+  const basePath = rawPathname.startsWith(`/${locale}`)
+    ? rawPathname.slice(`/${locale}`.length) || "/"
+    : rawPathname;
 
   return (
     <div role="group" aria-label={t("switchLocale")} className="flex items-center gap-0.5">
@@ -24,7 +31,7 @@ export default function LocaleSwitcher() {
         ) : (
           <Link
             key={loc}
-            href={pathname}
+            href={basePath}
             locale={loc}
             className="px-2 py-1 text-xs font-semibold uppercase tracking-wider rounded transition-colors"
             style={{ color: "var(--color-ink-dim)", textDecoration: "none" }}
