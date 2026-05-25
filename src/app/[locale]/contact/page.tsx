@@ -1,6 +1,10 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Map from "@/components/Map";
 import type { Metadata } from "next";
+import { client } from "@/sanity/client";
+import { settingsQuery, type SanitySettings } from "@/sanity/queries";
+
+export const revalidate = 3600;
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -17,9 +21,23 @@ export default async function ContactPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "ContactPage" });
 
-  const address = process.env.NEXT_PUBLIC_CONTACT_ADDRESS || t("address");
-  const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE || null;
-  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || null;
+  const settings = await client.fetch<SanitySettings | null>(
+    settingsQuery,
+    {},
+    { next: { tags: ["settings"] } }
+  );
+
+  const loc = locale as "th" | "en" | "it";
+
+  const address =
+    process.env.NEXT_PUBLIC_CONTACT_ADDRESS ||
+    settings?.address ||
+    t("address");
+  const phone =
+    process.env.NEXT_PUBLIC_CONTACT_PHONE || settings?.phone || null;
+  const email =
+    process.env.NEXT_PUBLIC_CONTACT_EMAIL || settings?.email || null;
+  const hours = settings?.openingHours?.[loc] || t("hours");
 
   return (
     <div
@@ -65,7 +83,9 @@ export default async function ContactPage({ params }: Props) {
             >
               {t("addressLabel")}
             </dt>
-            <dd style={{ color: "var(--color-ink)", margin: 0 }}>{address}</dd>
+            <dd style={{ color: "var(--color-ink)", margin: 0, whiteSpace: "pre-line" }}>
+              {address}
+            </dd>
           </div>
 
           {phone && (
@@ -132,9 +152,13 @@ export default async function ContactPage({ params }: Props) {
               {t("hoursLabel")}
             </dt>
             <dd
-              style={{ color: "var(--color-ink)", margin: 0, whiteSpace: "pre-line" }}
+              style={{
+                color: "var(--color-ink)",
+                margin: 0,
+                whiteSpace: "pre-line",
+              }}
             >
-              {t("hours")}
+              {hours}
             </dd>
           </div>
         </dl>
