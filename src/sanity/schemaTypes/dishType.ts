@@ -10,14 +10,14 @@ export const dishType = defineType({
     defineField({
       name: "name",
       title: "Nome",
-      type: "string",
-      validation: (r) => r.required(),
+      type: "localizedString",
+      description: "Nome del piatto in tutte le lingue",
     }),
     defineField({
       name: "description",
       title: "Descrizione",
-      type: "text",
-      rows: 3,
+      type: "localizedText",
+      description: "Descrizione breve in tutte le lingue",
     }),
     defineField({
       name: "category",
@@ -68,6 +68,6 @@ export const dishType = defineType({
     }),
   ],
   preview: {
-    select: { title: "name", subtitle: "category", media: "image" },
+    select: { title: "name.en", subtitle: "category", media: "image" },
   },
 });

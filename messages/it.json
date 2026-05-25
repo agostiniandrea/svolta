@@ -1,0 +1,23 @@
+{
+  "Layout": {
+    "skipToContent": "Vai al contenuto principale"
+  },
+  "Home": {
+    "headline": "SVOLTA",
+    "tagline": "Cucina stagionale curata. Pochi piatti, materie prime serie, zero sprechi."
+  },
+  "Nav": {
+    "menu": "Menu",
+    "about": "Chi siamo",
+    "delivery": "Delivery",
+    "contact": "Contatti"
+  },
+  "MenuCategories": {
+    "antipasto": "Antipasto",
+    "primo": "Primo",
+    "secondo": "Secondo",
+    "contorno": "Contorno",
+    "dolce": "Dolce",
+    "pranzo": "Pranzo del giorno"
+  }
+}

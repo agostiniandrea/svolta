@@ -16,8 +16,7 @@ export const settingsType = defineType({
     defineField({
       name: "siteDescription",
       title: "Descrizione breve",
-      type: "text",
-      rows: 2,
+      type: "localizedText",
     }),
     defineField({
       name: "address",
@@ -38,14 +37,12 @@ export const settingsType = defineType({
     defineField({
       name: "openingHours",
       title: "Orari di apertura",
-      type: "text",
-      rows: 3,
+      type: "localizedText",
     }),
     defineField({
       name: "deliveryInfo",
       title: "Info delivery",
-      type: "text",
-      rows: 3,
+      type: "localizedText",
     }),
   ],
 });

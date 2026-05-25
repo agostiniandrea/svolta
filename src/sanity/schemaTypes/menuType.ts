@@ -10,9 +10,8 @@ export const menuType = defineType({
     defineField({
       name: "title",
       title: "Titolo stagione",
-      type: "string",
-      placeholder: "es. Menu Primavera 2026",
-      validation: (r) => r.required(),
+      type: "localizedString",
+      description: "es. { en: 'Spring Menu 2026', it: 'Menu Primavera 2026', th: 'เมนูฤดูใบไม้ผลิ 2026' }",
     }),
     defineField({
       name: "season",
@@ -49,8 +48,7 @@ export const menuType = defineType({
     defineField({
       name: "note",
       title: "Intro stagionale",
-      type: "text",
-      rows: 3,
+      type: "localizedText",
       description: "Testo introduttivo per il menu di stagione (opzionale)",
     }),
     defineField({
@@ -61,10 +59,10 @@ export const menuType = defineType({
     }),
   ],
   preview: {
-    select: { title: "title", isActive: "isActive" },
+    select: { title: "title.en", isActive: "isActive" },
     prepare({ title, isActive }) {
       return {
-        title,
+        title: title ?? "Menu senza titolo",
         subtitle: isActive ? "✓ Attivo" : "Archiviato",
       };
     },

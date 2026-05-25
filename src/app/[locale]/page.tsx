@@ -1,4 +1,13 @@
-export default function HomePage() {
+import { getTranslations } from "next-intl/server";
+
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Home" });
+
   return (
     <div
       style={{
@@ -22,7 +31,7 @@ export default function HomePage() {
           margin: 0,
         }}
       >
-        SVOLTA
+        {t("headline")}
       </h1>
       <p
         style={{
@@ -32,8 +41,7 @@ export default function HomePage() {
           margin: 0,
         }}
       >
-        Cucina stagionale curata. Pochi piatti, materie prime serie, zero
-        sprechi.
+        {t("tagline")}
       </p>
     </div>
   );

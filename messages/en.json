@@ -1,0 +1,23 @@
+{
+  "Layout": {
+    "skipToContent": "Skip to main content"
+  },
+  "Home": {
+    "headline": "SVOLTA",
+    "tagline": "Curated seasonal cuisine. Few dishes, serious ingredients, zero waste."
+  },
+  "Nav": {
+    "menu": "Menu",
+    "about": "About",
+    "delivery": "Delivery",
+    "contact": "Contact"
+  },
+  "MenuCategories": {
+    "antipasto": "Starter",
+    "primo": "First course",
+    "secondo": "Main course",
+    "contorno": "Side dish",
+    "dolce": "Dessert",
+    "pranzo": "Lunch of the day"
+  }
+}
