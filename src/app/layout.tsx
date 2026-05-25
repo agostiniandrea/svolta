@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Playfair_Display } from "next/font/google";
-import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages, getTranslations } from "next-intl/server";
+import { getLocale } from "next-intl/server";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -34,21 +33,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const locale = await getLocale();
-  const messages = await getMessages();
-  const t = await getTranslations({ locale, namespace: "Layout" });
 
   return (
     <html lang={locale}>
       <body
-          className={`${dmSans.variable} ${playfair.variable}`}
-          style={{ display: "flex", flexDirection: "column", minHeight: "100svh" }}
-        >
-        <NextIntlClientProvider messages={messages}>
-          <a href="#main-content" className="skip-link">
-            {t("skipToContent")}
-          </a>
-          {children}
-        </NextIntlClientProvider>
+        className={`${dmSans.variable} ${playfair.variable}`}
+        style={{ display: "flex", flexDirection: "column", minHeight: "100svh" }}
+      >
+        {children}
       </body>
     </html>
   );

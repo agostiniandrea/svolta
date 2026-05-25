@@ -1,4 +1,6 @@
 import { notFound } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -15,11 +17,19 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound();
   }
 
+  const messages = await getMessages();
+  const t = await getTranslations({ locale, namespace: "Layout" });
+
   return (
-    <>
+    <NextIntlClientProvider messages={messages}>
+      <a href="#main-content" className="skip-link">
+        {t("skipToContent")}
+      </a>
       <Header />
-      <main id="main-content" style={{ flex: 1 }}>{children}</main>
+      <main id="main-content" style={{ flex: 1 }}>
+        {children}
+      </main>
       <Footer />
-    </>
+    </NextIntlClientProvider>
   );
 }
