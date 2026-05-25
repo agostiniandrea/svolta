@@ -1,21 +1,141 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================
+   DESIGN TOKENS — modifica qui per cambiare
+   l'identità visiva dell'intero sito.
+   ============================================ */
+
+@theme {
+  /* --- Brand palette --- */
+  /* forest su cream: 8.7:1 — WCAG AA ✓ per testo normale e grande */
+  --color-forest: #2c5016;
+  /* earth: 3.2:1 su cream — solo per testo grande (≥18px o bold ≥14px) o decorativo */
+  --color-earth: #b85c38;
+  /* cream: sfondo pagina principale */
+  --color-cream: #faf9f4;
+
+  /* --- Testi (tutti WCAG AA su cream) --- */
+  --color-ink: #1a1a1a;       /* 17.4:1 — testo body */
+  --color-ink-soft: #4a4a4a;  /*  8.3:1 — testo secondario */
+  --color-ink-dim: #6b6b6b;   /*  4.6:1 — minimo AA per testo normale */
+
+  /* --- Superfici --- */
+  --color-page: #faf9f4;
+  --color-card: #ffffff;
+  --color-void: #1a1a1a;      /* sezioni scure, footer */
+
+  /* --- Stati UI --- */
+  --color-focus: #2c5016;     /* ring di focus — visibile su tutti i bg */
+  --color-error: #b91c1c;     /*  5.9:1 su bianco — WCAG AA ✓ */
+
+  /* --- Tipografia ---
+     I valori --font-dm-sans e --font-playfair vengono iniettati
+     dal RootLayout via next/font. Cambia i font lì per aggiornarli. */
+  --font-sans: var(--font-dm-sans, "DM Sans"), system-ui, sans-serif;
+  --font-serif: var(--font-playfair, "Playfair Display"), Georgia, serif;
+
+  /* --- Dimensioni testo --- */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+  --text-5xl: 4rem;
+
+  /* --- Spaziatura sezioni --- */
+  --spacing-section: 5rem;
+
+  /* --- Border radius --- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-pill: 9999px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================================
+   BASE
+   ============================================ */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-page);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.625;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  /* Focus ring accessibile per navigazione da tastiera (WCAG 2.4.7) */
+  :focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Skip-to-content per screen reader (WCAG 2.4.1) */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    z-index: 50;
+    transform: translateY(-5rem);
+    padding: 0.5rem 1rem;
+    background-color: var(--color-forest);
+    color: var(--color-cream);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: transform 200ms ease;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  /* Rispetta la preferenza di movimento ridotto (WCAG 2.3.3) */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }
