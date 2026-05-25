@@ -4,13 +4,66 @@
   },
   "Home": {
     "headline": "SVOLTA",
-    "tagline": "Cucina stagionale curata. Pochi piatti, materie prime serie, zero sprechi."
+    "tagline": "Cucina stagionale curata. Pochi piatti, materie prime serie, zero sprechi.",
+    "heroCta": "Vedi il menu",
+    "conceptSectionTitle": "Cos'è SVOLTA?",
+    "conceptTeaser": "Una cucina plant-forward ad Ari, Bangkok. Seguiamo il mercato, non un menu fisso. Ogni piatto guadagna il suo posto ogni stagione.",
+    "conceptCta": "La nostra filosofia",
+    "menuSectionTitle": "Cosa serviamo",
+    "menuTeaser": "Breve, deliberato, sempre stagionale. Il menu cambia quando cambia il mercato.",
+    "menuCta": "Menu completo",
+    "locationSectionTitle": "Dove siamo",
+    "locationTeaser": "Siamo ad Ari, uno dei quartieri più vivibili di Bangkok — facile da raggiungere con lo BTS.",
+    "locationCta": "Come arrivare"
   },
   "Nav": {
     "menu": "Menu",
     "about": "Chi siamo",
     "delivery": "Delivery",
-    "contact": "Contatti"
+    "contact": "Contatti",
+    "openMenu": "Apri il menu di navigazione",
+    "closeMenu": "Chiudi il menu di navigazione",
+    "switchLocale": "Cambia lingua"
+  },
+  "MenuPage": {
+    "title": "Menu",
+    "intro": "Il nostro menu è stagionale e cambia regolarmente. Quello che vedi oggi potrebbe non esserci la settimana prossima — ed è questa l'intenzione.",
+    "noItems": "Il menu è in aggiornamento. Torna presto."
+  },
+  "ConceptPage": {
+    "title": "L'idea",
+    "intro": "SVOLTA in italiano significa quello che dice: una svolta, un cambio di rotta. Qui è una cucina che si allontana dall'eccesso.",
+    "section1Title": "Plant-forward, senza predicare",
+    "section1Body": "Cuciniamo verdure, legumi e cereali con la stessa cura di solito riservata alla carne. Niente etichette, niente manifesti — solo cibo che sa di quello che è.",
+    "section2Title": "Decide la stagione",
+    "section2Body": "Quando un ingrediente è al suo meglio, compare. Quando la sua stagione finisce, sparisce. Il menu è corto perché deve esserlo: solo quello che vale la pena cucinare adesso.",
+    "section3Title": "Zero sprechi",
+    "section3Body": "Ogni parte di ogni ingrediente ha un ruolo. I ritagli diventano brodi, i gambi diventano guarnizioni. Pianifichiamo per sprecare il meno possibile."
+  },
+  "DeliveryPage": {
+    "title": "Delivery",
+    "intro": "Consegniamo nella zona di Ari. Fresco, confezionato con cura, pronto da mangiare.",
+    "zoneTitle": "Zona di consegna",
+    "zoneDetail": "Al momento consegniamo entro 5 km dalla stazione BTS di Ari — coprendo Phaya Thai, Saphan Khwai e le zone limitrofe.",
+    "hoursTitle": "Orari di consegna",
+    "hoursDetail": "Pranzo: 11:30 – 14:00\nCena: 17:30 – 20:30\nChiuso il lunedì",
+    "orderTitle": "Come ordinare",
+    "orderDetail": "Ordina tramite LINE MAN o GrabFood. Per grandi ordini o catering, contattaci direttamente."
+  },
+  "ContactPage": {
+    "title": "Contatti",
+    "intro": "Vieni a trovarci. Siamo ad Ari — a due passi dalla stazione BTS Ari.",
+    "addressLabel": "Indirizzo",
+    "address": "Ari, Phaya Thai, Bangkok 10400",
+    "phoneLabel": "Telefono",
+    "emailLabel": "Email",
+    "hoursLabel": "Orari di apertura",
+    "hours": "Mar – Dom: 11:30 – 21:00\nChiuso il lunedì",
+    "mapTitle": "Trovaci sulla mappa"
+  },
+  "Footer": {
+    "tagline": "Cucina stagionale plant-forward ad Ari, Bangkok.",
+    "rights": "© {year} SVOLTA. Tutti i diritti riservati."
   },
   "MenuCategories": {
     "antipasto": "Antipasto",

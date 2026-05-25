@@ -1,6 +1,6 @@
 "use client";
 
-export { dynamic } from "next-sanity/studio";
+export const dynamic = "force-dynamic";
 
 import { NextStudio } from "next-sanity/studio";
 import config from "../../../../sanity.config";

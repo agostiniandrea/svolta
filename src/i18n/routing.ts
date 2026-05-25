@@ -3,9 +3,10 @@ import { defineRouting } from "next-intl/routing";
 export const routing = defineRouting({
   locales: ["th", "en", "it"],
   defaultLocale: "th",
-  // URL senza prefisso per la lingua default (th):
-  //   /        → Thai
+  // Tutte le lingue hanno un prefisso esplicito:
+  //   /th      → Thai
   //   /en      → English
   //   /it      → Italiano
-  localePrefix: "as-needed",
+  //   /        → redirect a /th
+  localePrefix: "always",
 });

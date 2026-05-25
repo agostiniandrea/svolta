@@ -1,11 +1,11 @@
 import { defineField, defineType } from "sanity";
-import { UtensilCrossedIcon } from "@sanity/icons";
+import { BasketIcon } from "@sanity/icons";
 
 export const dishType = defineType({
   name: "dish",
   title: "Piatto",
   type: "document",
-  icon: UtensilCrossedIcon,
+  icon: BasketIcon,
   fields: [
     defineField({
       name: "name",

@@ -46,6 +46,9 @@
   --text-4xl: 3rem;
   --text-5xl: 4rem;
 
+  /* --- Layout --- */
+  --max-w-container: 75rem; /* 1200px */
+
   /* --- Spaziatura sezioni --- */
   --spacing-section: 5rem;
 
