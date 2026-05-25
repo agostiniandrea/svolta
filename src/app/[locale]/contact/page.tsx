@@ -17,9 +17,9 @@ export default async function ContactPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "ContactPage" });
 
-  const address = process.env.NEXT_PUBLIC_CONTACT_ADDRESS ?? t("address");
-  const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE;
-  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
+  const address = process.env.NEXT_PUBLIC_CONTACT_ADDRESS || t("address");
+  const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE || null;
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || null;
 
   return (
     <div
