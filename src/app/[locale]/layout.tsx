@@ -18,7 +18,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <>
       <Header />
-      <main id="main-content">{children}</main>
+      <main id="main-content" style={{ flex: 1 }}>{children}</main>
       <Footer />
     </>
   );

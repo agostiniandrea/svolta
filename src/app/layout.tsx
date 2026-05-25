@@ -39,7 +39,10 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${dmSans.variable} ${playfair.variable}`}>
+      <body
+          className={`${dmSans.variable} ${playfair.variable}`}
+          style={{ display: "flex", flexDirection: "column", minHeight: "100svh" }}
+        >
         <NextIntlClientProvider messages={messages}>
           <a href="#main-content" className="skip-link">
             {t("skipToContent")}
