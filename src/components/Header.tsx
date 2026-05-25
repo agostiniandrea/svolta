@@ -1,19 +1,21 @@
 "use client";
 import { useState } from "react";
-import { useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
+import { useLocale, useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import LocaleSwitcher from "./LocaleSwitcher";
 
-const NAV_LINKS = [
-  { href: "/menu" as const, label: "menu" as const },
-  { href: "/concept" as const, label: "about" as const },
-  { href: "/delivery" as const, label: "delivery" as const },
-  { href: "/contact" as const, label: "contact" as const },
+const NAV_PATHS = [
+  { path: "menu", label: "menu" as const },
+  { path: "concept", label: "about" as const },
+  { path: "delivery", label: "delivery" as const },
+  { path: "contact", label: "contact" as const },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("Nav");
+  const locale = useLocale();
   const pathname = usePathname();
 
   return (
@@ -28,9 +30,9 @@ export default function Header() {
         className="mx-auto px-6 flex items-center justify-between"
         style={{ maxWidth: "var(--max-w-container)", height: "4rem" }}
       >
-        {/* Logo */}
+        {/* Logo — always links to locale home */}
         <Link
-          href="/"
+          href={`/${locale}`}
           style={{
             fontFamily: "var(--font-serif)",
             fontSize: "var(--text-xl)",
@@ -45,11 +47,12 @@ export default function Header() {
 
         {/* Desktop nav */}
         <nav aria-label="Main navigation" className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map(({ href, label }) => {
-            const isActive = pathname === href || pathname.startsWith(href + "/");
+          {NAV_PATHS.map(({ path, label }) => {
+            const href = `/${locale}/${path}`;
+            const isActive = pathname === href || pathname.startsWith(`${href}/`);
             return (
               <Link
-                key={href}
+                key={path}
                 href={href}
                 aria-current={isActive ? "page" : undefined}
                 style={{
@@ -66,11 +69,9 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Right side */}
+        {/* Right side: locale switcher + mobile toggle */}
         <div className="flex items-center gap-3">
           <LocaleSwitcher />
-
-          {/* Mobile hamburger */}
           <button
             className="md:hidden p-1"
             aria-label={isOpen ? t("closeMenu") : t("openMenu")}
@@ -80,30 +81,12 @@ export default function Header() {
             style={{ color: "var(--color-ink)" }}
           >
             {isOpen ? (
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                aria-hidden="true"
-              >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             ) : (
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                aria-hidden="true"
-              >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
                 <line x1="3" y1="7" x2="21" y2="7" />
                 <line x1="3" y1="12" x2="21" y2="12" />
                 <line x1="3" y1="17" x2="21" y2="17" />
@@ -124,10 +107,11 @@ export default function Header() {
           }}
         >
           <ul style={{ padding: "1.25rem 1.5rem", display: "flex", flexDirection: "column", gap: "1.25rem", listStyle: "none", margin: 0 }}>
-            {NAV_LINKS.map(({ href, label }) => {
-              const isActive = pathname === href || pathname.startsWith(href + "/");
+            {NAV_PATHS.map(({ path, label }) => {
+              const href = `/${locale}/${path}`;
+              const isActive = pathname === href || pathname.startsWith(`${href}/`);
               return (
-                <li key={href}>
+                <li key={path}>
                   <Link
                     href={href}
                     onClick={() => setIsOpen(false)}

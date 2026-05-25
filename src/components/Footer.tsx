@@ -1,16 +1,18 @@
+import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 
-const NAV_LINKS = [
-  { href: "/menu" as const, label: "menu" as const },
-  { href: "/concept" as const, label: "about" as const },
-  { href: "/delivery" as const, label: "delivery" as const },
-  { href: "/contact" as const, label: "contact" as const },
+const NAV_PATHS = [
+  { path: "menu", label: "menu" as const },
+  { path: "concept", label: "about" as const },
+  { path: "delivery", label: "delivery" as const },
+  { path: "contact", label: "contact" as const },
 ];
 
-export default async function Footer() {
-  const t = await getTranslations("Footer");
-  const tNav = await getTranslations("Nav");
+type Props = { locale: string };
+
+export default async function Footer({ locale }: Props) {
+  const t = await getTranslations({ locale, namespace: "Footer" });
+  const tNav = await getTranslations({ locale, namespace: "Nav" });
   const year = new Date().getFullYear();
 
   return (
@@ -45,10 +47,10 @@ export default async function Footer() {
         {/* Nav */}
         <nav aria-label="Footer navigation">
           <ul className="flex flex-col gap-3 list-none m-0 p-0">
-            {NAV_LINKS.map(({ href, label }) => (
-              <li key={href}>
+            {NAV_PATHS.map(({ path, label }) => (
+              <li key={path}>
                 <Link
-                  href={href}
+                  href={`/${locale}/${path}`}
                   style={{
                     fontSize: "var(--text-sm)",
                     color: "var(--color-cream)",

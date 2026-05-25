@@ -1,5 +1,5 @@
-import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 
 type Props = {
@@ -14,6 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Home" });
 
   return (
@@ -51,7 +52,7 @@ export default async function HomePage({ params }: Props) {
             {t("tagline")}
           </p>
           <Link
-            href="/menu"
+            href={`/${locale}/menu`}
             style={{
               display: "inline-block",
               padding: "0.75rem 2rem",
@@ -106,7 +107,7 @@ export default async function HomePage({ params }: Props) {
               {t("conceptTeaser")}
             </p>
             <Link
-              href="/concept"
+              href={`/${locale}/concept`}
               style={{
                 fontSize: "var(--text-sm)",
                 fontWeight: 600,
@@ -118,7 +119,6 @@ export default async function HomePage({ params }: Props) {
               {t("conceptCta")} →
             </Link>
           </div>
-          {/* Decorative placeholder — will become an image once photography is ready */}
           <div
             aria-hidden="true"
             style={{
@@ -161,7 +161,7 @@ export default async function HomePage({ params }: Props) {
             {t("menuTeaser")}
           </p>
           <Link
-            href="/menu"
+            href={`/${locale}/menu`}
             style={{
               fontSize: "var(--text-sm)",
               fontWeight: 600,
@@ -213,7 +213,7 @@ export default async function HomePage({ params }: Props) {
               {t("locationTeaser")}
             </p>
             <Link
-              href="/contact"
+              href={`/${locale}/contact`}
               style={{
                 fontSize: "var(--text-sm)",
                 fontWeight: 600,
@@ -226,7 +226,6 @@ export default async function HomePage({ params }: Props) {
               {t("locationCta")} →
             </Link>
           </div>
-          {/* Decorative placeholder */}
           <div
             aria-hidden="true"
             style={{

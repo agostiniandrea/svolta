@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -17,6 +17,8 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound();
   }
 
+  setRequestLocale(locale);
+
   const messages = await getMessages();
   const t = await getTranslations({ locale, namespace: "Layout" });
 
@@ -29,7 +31,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <main id="main-content" style={{ flex: 1 }}>
         {children}
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </NextIntlClientProvider>
   );
 }
