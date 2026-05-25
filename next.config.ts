@@ -18,12 +18,9 @@ const nextConfig: NextConfig = {
 const withSanityCompat = (config: NextConfig): NextConfig => ({
   ...config,
   webpack(webpackConfig, options) {
-    // Sanity ships pre-built ESM chunks that import `useEffectEvent` from React.
-    // Webpack 5 strict ESM named-export checking fails to detect it from React's
-    // CJS entry. Marking those chunks as `javascript/auto` disables the strict check.
-    // Sanity and its satellite packages (@sanity/*) ship pre-built ESM files
-    // that import `useEffectEvent` from React. Webpack 5's strict ESM named-export
-    // check can't find it in React's CJS bundle. `javascript/auto` disables that check.
+    // Sanity's pre-built ESM chunks import `useEffectEvent` from React, which
+    // Webpack 5's strict named-export check can't resolve from React's CJS bundle.
+    // `javascript/auto` disables that check for Sanity files.
     webpackConfig.module.rules.push({
       test: /node_modules\/(sanity|@sanity\/[^/]+)\/lib\/.*\.js$/,
       type: "javascript/auto",
