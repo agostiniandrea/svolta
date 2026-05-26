@@ -6,4 +6,7 @@ export default defineCliConfig({
     dataset: "production",
   },
   studioHost: "svolta",
+  deployment: {
+    appId: "qyoltjmo11zahmv5mr9rd47e",
+  },
 });
