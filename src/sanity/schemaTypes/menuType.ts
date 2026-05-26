@@ -3,26 +3,26 @@ import { CalendarIcon } from "@sanity/icons";
 
 export const menuType = defineType({
   name: "menu",
-  title: "Menu stagionale",
+  title: "Seasonal Menu",
   type: "document",
   icon: CalendarIcon,
   fields: [
     defineField({
       name: "title",
-      title: "Titolo stagione",
+      title: "Season title",
       type: "localizedString",
-      description: "es. { en: 'Spring Menu 2026', it: 'Menu Primavera 2026', th: 'เมนูฤดูใบไม้ผลิ 2026' }",
+      description: "e.g. { en: 'Spring Menu 2026', it: 'Menu Primavera 2026', th: 'เมนูฤดูใบไม้ผลิ 2026' }",
     }),
     defineField({
       name: "season",
-      title: "Stagione",
+      title: "Season",
       type: "string",
       options: {
         list: [
-          { title: "Primavera", value: "primavera" },
-          { title: "Estate", value: "estate" },
-          { title: "Autunno", value: "autunno" },
-          { title: "Inverno", value: "inverno" },
+          { title: "Spring", value: "primavera" },
+          { title: "Summer", value: "estate" },
+          { title: "Autumn", value: "autunno" },
+          { title: "Winter", value: "inverno" },
         ],
         layout: "radio",
       },
@@ -30,30 +30,30 @@ export const menuType = defineType({
     }),
     defineField({
       name: "isActive",
-      title: "Menu attivo",
+      title: "Active menu",
       type: "boolean",
-      description: "Il menu corrente mostrato sul sito",
+      description: "The current menu shown on the website",
       initialValue: false,
     }),
     defineField({
       name: "startDate",
-      title: "Inizio validità",
+      title: "Start date",
       type: "date",
     }),
     defineField({
       name: "endDate",
-      title: "Fine validità",
+      title: "End date",
       type: "date",
     }),
     defineField({
       name: "note",
-      title: "Intro stagionale",
+      title: "Seasonal intro",
       type: "localizedText",
-      description: "Testo introduttivo per il menu di stagione (opzionale)",
+      description: "Introductory text for the seasonal menu (optional)",
     }),
     defineField({
       name: "dishes",
-      title: "Piatti",
+      title: "Dishes",
       type: "array",
       of: [{ type: "reference", to: [{ type: "dish" }] }],
     }),
@@ -62,8 +62,8 @@ export const menuType = defineType({
     select: { title: "title.en", isActive: "isActive" },
     prepare({ title, isActive }) {
       return {
-        title: title ?? "Menu senza titolo",
-        subtitle: isActive ? "✓ Attivo" : "Archiviato",
+        title: title ?? "Untitled menu",
+        subtitle: isActive ? "✓ Active" : "Archived",
       };
     },
   },

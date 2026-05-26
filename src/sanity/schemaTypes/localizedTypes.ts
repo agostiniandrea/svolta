@@ -2,7 +2,7 @@ import { defineType } from "sanity";
 
 export const localizedStringType = defineType({
   name: "localizedString",
-  title: "Testo multilingua",
+  title: "Multilingual text",
   type: "object",
   fields: [
     { name: "th", type: "string", title: "ภาษาไทย (Thai)" },
@@ -16,7 +16,7 @@ export const localizedStringType = defineType({
 
 export const localizedTextType = defineType({
   name: "localizedText",
-  title: "Testo lungo multilingua",
+  title: "Multilingual long text",
   type: "object",
   fields: [
     { name: "th", type: "text", title: "ภาษาไทย (Thai)", rows: 3 },

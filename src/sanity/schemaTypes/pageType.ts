@@ -3,39 +3,39 @@ import { DocumentTextIcon } from "@sanity/icons";
 
 export const pageType = defineType({
   name: "page",
-  title: "Pagina",
+  title: "Page",
   type: "document",
   icon: DocumentTextIcon,
   fields: [
     defineField({
       name: "title",
-      title: "Titolo",
+      title: "Title",
       type: "string",
       validation: (r) => r.required(),
     }),
     defineField({
       name: "slug",
-      title: "URL",
+      title: "URL slug",
       type: "slug",
       options: { source: "title" },
       validation: (r) => r.required(),
     }),
     defineField({
       name: "body",
-      title: "Contenuto",
+      title: "Content",
       type: "array",
       of: [
         {
           type: "block",
           styles: [
-            { title: "Normale", value: "normal" },
+            { title: "Normal", value: "normal" },
             { title: "H2", value: "h2" },
             { title: "H3", value: "h3" },
           ],
           marks: {
             decorators: [
-              { title: "Grassetto", value: "strong" },
-              { title: "Corsivo", value: "em" },
+              { title: "Bold", value: "strong" },
+              { title: "Italic", value: "em" },
             ],
           },
         },

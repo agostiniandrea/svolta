@@ -3,30 +3,30 @@ import { CogIcon } from "@sanity/icons";
 
 export const settingsType = defineType({
   name: "settings",
-  title: "Impostazioni sito",
+  title: "Site Settings",
   type: "document",
   icon: CogIcon,
   fields: [
     defineField({
       name: "siteName",
-      title: "Nome sito",
+      title: "Site name",
       type: "string",
       initialValue: "SVOLTA",
     }),
     defineField({
       name: "siteDescription",
-      title: "Descrizione breve",
+      title: "Short description",
       type: "localizedText",
     }),
     defineField({
       name: "address",
-      title: "Indirizzo",
+      title: "Address",
       type: "text",
       rows: 3,
     }),
     defineField({
       name: "phone",
-      title: "Telefono",
+      title: "Phone",
       type: "string",
     }),
     defineField({
@@ -36,12 +36,12 @@ export const settingsType = defineType({
     }),
     defineField({
       name: "openingHours",
-      title: "Orari di apertura",
+      title: "Opening hours",
       type: "localizedText",
     }),
     defineField({
       name: "deliveryInfo",
-      title: "Info delivery",
+      title: "Delivery info",
       type: "localizedText",
     }),
   ],
