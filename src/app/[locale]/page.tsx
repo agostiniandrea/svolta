@@ -72,7 +72,6 @@ export default async function HomePage({ params }: Props) {
 
       {/* Concept teaser */}
       <section
-        className="px-6"
         style={{
           background: "var(--color-card)",
           paddingTop: "var(--spacing-section)",
@@ -80,7 +79,7 @@ export default async function HomePage({ params }: Props) {
         }}
       >
         <div
-          className="mx-auto grid gap-12 items-center"
+          className="mx-auto px-6 grid gap-12 items-center"
           style={{
             maxWidth: "var(--max-w-container)",
             gridTemplateColumns: "repeat(auto-fit, minmax(18rem, 1fr))",
@@ -133,14 +132,14 @@ export default async function HomePage({ params }: Props) {
 
       {/* Menu teaser */}
       <section
-        className="px-6 text-center"
+        className="text-center"
         style={{
           background: "var(--color-page)",
           paddingTop: "var(--spacing-section)",
           paddingBottom: "var(--spacing-section)",
         }}
       >
-        <div className="mx-auto" style={{ maxWidth: "36rem" }}>
+        <div className="mx-auto px-6" style={{ maxWidth: "36rem" }}>
           <h2
             style={{
               fontFamily: "var(--font-serif)",
@@ -177,7 +176,6 @@ export default async function HomePage({ params }: Props) {
 
       {/* Location teaser */}
       <section
-        className="px-6"
         style={{
           background: "var(--color-void)",
           color: "var(--color-cream)",
@@ -186,7 +184,7 @@ export default async function HomePage({ params }: Props) {
         }}
       >
         <div
-          className="mx-auto grid gap-12 items-center"
+          className="mx-auto px-6 grid gap-12 items-center"
           style={{
             maxWidth: "var(--max-w-container)",
             gridTemplateColumns: "repeat(auto-fit, minmax(18rem, 1fr))",

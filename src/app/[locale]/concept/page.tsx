@@ -26,7 +26,6 @@ export default async function ConceptPage({ params }: Props) {
     <>
       {/* Page header */}
       <section
-        className="px-6"
         style={{
           background: "var(--color-void)",
           color: "var(--color-cream)",
@@ -34,7 +33,7 @@ export default async function ConceptPage({ params }: Props) {
           paddingBottom: "var(--spacing-section)",
         }}
       >
-        <div className="mx-auto" style={{ maxWidth: "var(--max-w-container)" }}>
+        <div className="mx-auto px-6" style={{ maxWidth: "var(--max-w-container)" }}>
           <h1
             style={{
               fontFamily: "var(--font-serif)",
@@ -59,14 +58,13 @@ export default async function ConceptPage({ params }: Props) {
 
       {/* Content sections */}
       <section
-        className="px-6"
         style={{
           paddingTop: "var(--spacing-section)",
           paddingBottom: "var(--spacing-section)",
         }}
       >
         <div
-          className="mx-auto"
+          className="mx-auto px-6"
           style={{ maxWidth: "var(--max-w-container)" }}
         >
           <dl
