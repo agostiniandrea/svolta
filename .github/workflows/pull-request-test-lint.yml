@@ -71,8 +71,6 @@ jobs:
           yarn start &
           sleep 5
           yarn lhci autorun
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
       - name: Auto-merge PR
         if: success()
