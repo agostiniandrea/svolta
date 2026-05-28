@@ -55,6 +55,13 @@ export const dishType = defineType({
       },
     }),
     defineField({
+      name: "price",
+      title: "Price (THB)",
+      type: "number",
+      description: "Price in Thai Baht",
+      validation: (r) => r.min(0),
+    }),
+    defineField({
       name: "image",
       title: "Image",
       type: "image",

@@ -53,6 +53,7 @@ export default async function HomePage({ params }: Props) {
           </p>
           <Link
             href={`/${locale}/menu`}
+            className="btn-primary"
             style={{
               display: "inline-block",
               padding: "0.75rem 2rem",

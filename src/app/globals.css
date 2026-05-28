@@ -127,6 +127,19 @@
     transform: translateY(0);
   }
 
+  /* Primary button — usare className="btn-primary" per hover/active consistenti */
+  .btn-primary {
+    transition: opacity 150ms ease;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.85;
+  }
+
+  .btn-primary:active {
+    opacity: 0.7;
+  }
+
   /* Rispetta la preferenza di movimento ridotto (WCAG 2.3.3) */
   @media (prefers-reduced-motion: reduce) {
     *,

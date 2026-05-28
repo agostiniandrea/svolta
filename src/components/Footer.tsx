@@ -67,7 +67,7 @@ export default async function Footer({ locale }: Props) {
         </nav>
 
         {/* Legal */}
-        <div style={{ fontSize: "var(--text-xs)", opacity: 0.4, alignSelf: "flex-end" }}>
+        <div style={{ fontSize: "var(--text-xs)", opacity: 0.55, alignSelf: "flex-end" }}>
           <p>{t("rights", { year })}</p>
         </div>
       </div>

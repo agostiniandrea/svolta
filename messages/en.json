@@ -48,7 +48,10 @@
     "hoursTitle": "Delivery hours",
     "hoursDetail": "Lunch: 11:30 – 14:00\nDinner: 17:30 – 20:30\nClosed Monday",
     "orderTitle": "How to order",
-    "orderDetail": "Order through LINE MAN or GrabFood. For large orders or catering, contact us directly."
+    "orderDetail": "Order through LINE MAN or GrabFood. For large orders or catering, contact us directly.",
+    "orderNowLabel": "Order now",
+    "orderGrab": "Order on GrabFood",
+    "orderLineman": "Order on LINE MAN"
   },
   "ContactPage": {
     "title": "Contact",

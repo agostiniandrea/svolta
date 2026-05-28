@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -81,6 +82,62 @@ export default async function DeliveryPage({ params }: Props) {
             </p>
           </article>
         ))}
+      </div>
+
+      {/* Order CTAs */}
+      <div style={{ marginTop: "3rem" }}>
+        <p
+          style={{
+            fontSize: "var(--text-xs)",
+            fontWeight: 700,
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            color: "var(--color-ink-dim)",
+            marginBottom: "1rem",
+          }}
+        >
+          {t("orderNowLabel")}
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <Link
+            href={process.env.NEXT_PUBLIC_GRABFOOD_URL ?? "https://food.grab.com/th/en/"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+            style={{
+              display: "inline-block",
+              padding: "0.75rem 1.75rem",
+              borderRadius: "var(--radius-pill)",
+              background: "var(--color-forest)",
+              color: "var(--color-cream)",
+              fontSize: "var(--text-sm)",
+              fontWeight: 600,
+              textDecoration: "none",
+              letterSpacing: "0.03em",
+            }}
+          >
+            {t("orderGrab")}
+          </Link>
+          <Link
+            href={process.env.NEXT_PUBLIC_LINEMAN_URL ?? "https://lineman.line.me/"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+            style={{
+              display: "inline-block",
+              padding: "0.75rem 1.75rem",
+              borderRadius: "var(--radius-pill)",
+              border: "2px solid var(--color-forest)",
+              color: "var(--color-forest)",
+              fontSize: "var(--text-sm)",
+              fontWeight: 600,
+              textDecoration: "none",
+              letterSpacing: "0.03em",
+            }}
+          >
+            {t("orderLineman")}
+          </Link>
+        </div>
       </div>
     </div>
   );

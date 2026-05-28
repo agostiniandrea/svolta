@@ -48,7 +48,10 @@
     "hoursTitle": "เวลาส่งอาหาร",
     "hoursDetail": "กลางวัน: 11:30 – 14:00\nเย็น: 17:30 – 20:30\nหยุดวันจันทร์",
     "orderTitle": "วิธีสั่งอาหาร",
-    "orderDetail": "สั่งผ่าน LINE MAN หรือ GrabFood สำหรับออเดอร์ขนาดใหญ่หรือจัดเลี้ยง ติดต่อเราโดยตรง"
+    "orderDetail": "สั่งผ่าน LINE MAN หรือ GrabFood สำหรับออเดอร์ขนาดใหญ่หรือจัดเลี้ยง ติดต่อเราโดยตรง",
+    "orderNowLabel": "สั่งเลย",
+    "orderGrab": "สั่งผ่าน GrabFood",
+    "orderLineman": "สั่งผ่าน LINE MAN"
   },
   "ContactPage": {
     "title": "ติดต่อ",

@@ -34,7 +34,7 @@ export default function LocaleSwitcher() {
           <Link
             key={loc}
             href={href}
-            className="px-2 py-1 text-xs font-semibold uppercase tracking-wider rounded transition-colors"
+            className="px-2 py-1 text-xs font-semibold uppercase tracking-wider rounded transition-opacity hover:opacity-70"
             style={{ color: "var(--color-ink-dim)", textDecoration: "none" }}
           >
             {loc}
