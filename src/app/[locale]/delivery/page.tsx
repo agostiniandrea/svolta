@@ -23,6 +23,10 @@ export default async function DeliveryPage({ params }: Props) {
     { titleKey: "orderTitle", bodyKey: "orderDetail" },
   ] as const;
 
+  const grabUrl = process.env.NEXT_PUBLIC_GRABFOOD_URL ?? null;
+  const linemanUrl = process.env.NEXT_PUBLIC_LINEMAN_URL ?? null;
+  const hasOrderLinks = grabUrl !== null || linemanUrl !== null;
+
   return (
     <div
       className="mx-auto px-6"
@@ -84,61 +88,67 @@ export default async function DeliveryPage({ params }: Props) {
         ))}
       </div>
 
-      {/* Order CTAs */}
-      <div style={{ marginTop: "3rem" }}>
-        <p
-          style={{
-            fontSize: "var(--text-xs)",
-            fontWeight: 700,
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            color: "var(--color-ink-dim)",
-            marginBottom: "1rem",
-          }}
-        >
-          {t("orderNowLabel")}
-        </p>
-        <div className="flex flex-wrap gap-3">
-          <Link
-            href={process.env.NEXT_PUBLIC_GRABFOOD_URL ?? "https://food.grab.com/th/en/"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
+      {/* Order CTAs — shown only when store URLs are configured */}
+      {hasOrderLinks && (
+        <div style={{ marginTop: "3rem" }}>
+          <p
             style={{
-              display: "inline-block",
-              padding: "0.75rem 1.75rem",
-              borderRadius: "var(--radius-pill)",
-              background: "var(--color-forest)",
-              color: "var(--color-cream)",
-              fontSize: "var(--text-sm)",
-              fontWeight: 600,
-              textDecoration: "none",
-              letterSpacing: "0.03em",
+              fontSize: "var(--text-xs)",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "var(--color-ink-dim)",
+              marginBottom: "1rem",
             }}
           >
-            {t("orderGrab")}
-          </Link>
-          <Link
-            href={process.env.NEXT_PUBLIC_LINEMAN_URL ?? "https://lineman.line.me/"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-            style={{
-              display: "inline-block",
-              padding: "0.75rem 1.75rem",
-              borderRadius: "var(--radius-pill)",
-              border: "2px solid var(--color-forest)",
-              color: "var(--color-forest)",
-              fontSize: "var(--text-sm)",
-              fontWeight: 600,
-              textDecoration: "none",
-              letterSpacing: "0.03em",
-            }}
-          >
-            {t("orderLineman")}
-          </Link>
+            {t("orderNowLabel")}
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {grabUrl && (
+              <Link
+                href={grabUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+                style={{
+                  display: "inline-block",
+                  padding: "0.75rem 1.75rem",
+                  borderRadius: "var(--radius-pill)",
+                  background: "var(--color-forest)",
+                  color: "var(--color-cream)",
+                  fontSize: "var(--text-sm)",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  letterSpacing: "0.03em",
+                }}
+              >
+                {t("orderGrab")}
+              </Link>
+            )}
+            {linemanUrl && (
+              <Link
+                href={linemanUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+                style={{
+                  display: "inline-block",
+                  padding: "0.75rem 1.75rem",
+                  borderRadius: "var(--radius-pill)",
+                  border: "2px solid var(--color-forest)",
+                  color: "var(--color-forest)",
+                  fontSize: "var(--text-sm)",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  letterSpacing: "0.03em",
+                }}
+              >
+                {t("orderLineman")}
+              </Link>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
