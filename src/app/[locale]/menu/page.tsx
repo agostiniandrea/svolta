@@ -12,7 +12,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "MenuPage" });
-  return { title: t("title") };
+  return { title: t("title"), description: t("metaDescription") };
 }
 
 export default async function MenuPage({ params }: Props) {
@@ -79,35 +79,27 @@ export default async function MenuPage({ params }: Props) {
         className="grid gap-10"
         style={{ gridTemplateColumns: "repeat(auto-fit, minmax(20rem, 1fr))" }}
       >
-        {categories.map((cat) => {
-          const dishes = byCategory[cat];
-          return (
-            <section key={cat} aria-labelledby={`cat-${cat}`}>
-              <h2
-                id={`cat-${cat}`}
-                style={{
-                  fontFamily: "var(--font-serif)",
-                  fontSize: "var(--text-xl)",
-                  color: "var(--color-ink)",
-                  marginBottom: "1rem",
-                  paddingBottom: "0.5rem",
-                  borderBottom:
-                    "1px solid color-mix(in srgb, var(--color-ink) 12%, transparent)",
-                }}
-              >
-                {tCat(cat)}
-              </h2>
-
-              {dishes.length === 0 ? (
-                <p
+        {categories
+          .filter((cat) => byCategory[cat].length > 0)
+          .map((cat) => {
+            const dishes = byCategory[cat];
+            return (
+              <section key={cat} aria-labelledby={`cat-${cat}`}>
+                <h2
+                  id={`cat-${cat}`}
                   style={{
-                    color: "var(--color-ink-dim)",
-                    fontSize: "var(--text-sm)",
+                    fontFamily: "var(--font-serif)",
+                    fontSize: "var(--text-xl)",
+                    color: "var(--color-ink)",
+                    marginBottom: "1rem",
+                    paddingBottom: "0.5rem",
+                    borderBottom:
+                      "1px solid color-mix(in srgb, var(--color-ink) 12%, transparent)",
                   }}
                 >
-                  {t("noItems")}
-                </p>
-              ) : (
+                  {tCat(cat)}
+                </h2>
+
                 <ul
                   style={{
                     listStyle: "none",
@@ -120,15 +112,32 @@ export default async function MenuPage({ params }: Props) {
                 >
                   {dishes.map((dish) => (
                     <li key={dish._id}>
-                      <p
+                      <div
                         style={{
-                          fontWeight: 600,
-                          color: "var(--color-ink)",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "baseline",
+                          gap: "1rem",
                           marginBottom: "0.2rem",
                         }}
                       >
-                        {dish.name[loc] ?? dish.name.en ?? ""}
-                      </p>
+                        <p style={{ fontWeight: 600, color: "var(--color-ink)", margin: 0 }}>
+                          {dish.name[loc] ?? dish.name.en ?? ""}
+                        </p>
+                        {dish.price != null && (
+                          <p
+                            style={{
+                              fontWeight: 600,
+                              color: "var(--color-forest)",
+                              fontSize: "var(--text-sm)",
+                              whiteSpace: "nowrap",
+                              margin: 0,
+                            }}
+                          >
+                            ฿{dish.price}
+                          </p>
+                        )}
+                      </div>
                       {dish.description?.[loc] && (
                         <p
                           style={{
@@ -155,10 +164,15 @@ export default async function MenuPage({ params }: Props) {
                     </li>
                   ))}
                 </ul>
-              )}
-            </section>
-          );
-        })}
+              </section>
+            );
+          })}
+
+        {allDishes.length === 0 && (
+          <p style={{ color: "var(--color-ink-dim)", fontSize: "var(--text-sm)" }}>
+            {t("noItems")}
+          </p>
+        )}
       </div>
     </div>
   );

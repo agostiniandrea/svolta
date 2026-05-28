@@ -14,6 +14,7 @@ export type SanityDish = {
   allergens?: string[] | null;
   isAvailable: boolean;
   imageUrl?: string | null;
+  price?: number | null;
 };
 
 export type ActiveMenu = {
@@ -42,6 +43,7 @@ export const activeMenuQuery = groq`
       category,
       allergens,
       isAvailable,
+      price,
       "imageUrl": image.asset->url
     }
   }

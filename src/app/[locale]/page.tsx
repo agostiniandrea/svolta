@@ -9,7 +9,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Home" });
-  return { title: t("tagline") };
+  return { title: t("tagline"), description: t("metaDescription") };
 }
 
 export default async function HomePage({ params }: Props) {
@@ -53,6 +53,7 @@ export default async function HomePage({ params }: Props) {
           </p>
           <Link
             href={`/${locale}/menu`}
+            className="btn-primary"
             style={{
               display: "inline-block",
               padding: "0.75rem 2rem",

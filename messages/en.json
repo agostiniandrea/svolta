@@ -3,6 +3,7 @@
     "skipToContent": "Skip to main content"
   },
   "Home": {
+    "metaDescription": "Plant-forward restaurant in Ari, Bangkok. Seasonal dishes, global comfort food, zero preaching.",
     "headline": "SVOLTA",
     "tagline": "Curated seasonal cuisine. Few dishes, serious ingredients, zero waste.",
     "heroCta": "See the menu",
@@ -27,11 +28,13 @@
   },
   "MenuPage": {
     "title": "Menu",
+    "metaDescription": "SVOLTA menu — Italian pasta, Japanese street food, Middle Eastern dips and more. Plant-based, no preaching.",
     "intro": "Our menu is seasonal and changes regularly. What you see today may not be here next week — and that's the point.",
     "noItems": "The menu is being updated. Come back soon."
   },
   "ConceptPage": {
     "title": "The idea",
+    "metaDescription": "The story behind SVOLTA — a plant-forward kitchen in Bangkok born from 35 countries of eating well.",
     "intro": "SVOLTA means 'turn' in Italian. A shift in direction. Here, it's a kitchen that turns away from excess.",
     "section1Title": "Plant-forward, not preachy",
     "section1Body": "We cook vegetables, legumes, and grains with the same care usually reserved for meat. No labels, no manifesto — just food that tastes like what it is.",
@@ -42,16 +45,21 @@
   },
   "DeliveryPage": {
     "title": "Delivery",
+    "metaDescription": "SVOLTA delivery in the Ari area, Bangkok. Order on GrabFood or LINE MAN. Lunch and dinner.",
     "intro": "We deliver within the Ari area. Fresh, packed carefully, ready to eat.",
     "zoneTitle": "Delivery zone",
     "zoneDetail": "We currently deliver within 5 km of Ari BTS station — covering Phaya Thai, Saphan Khwai, and nearby areas.",
     "hoursTitle": "Delivery hours",
     "hoursDetail": "Lunch: 11:30 – 14:00\nDinner: 17:30 – 20:30\nClosed Monday",
     "orderTitle": "How to order",
-    "orderDetail": "Order through LINE MAN or GrabFood. For large orders or catering, contact us directly."
+    "orderDetail": "Order through LINE MAN or GrabFood. For large orders or catering, contact us directly.",
+    "orderNowLabel": "Order now",
+    "orderGrab": "Order on GrabFood",
+    "orderLineman": "Order on LINE MAN"
   },
   "ContactPage": {
     "title": "Contact",
+    "metaDescription": "Find SVOLTA in Ari, Bangkok — a short walk from BTS Ari station. Opening hours, address and map.",
     "intro": "Come say hello. We're in Ari — a short walk from BTS Ari station.",
     "addressLabel": "Address",
     "address": "Ari, Phaya Thai, Bangkok 10400",

@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -8,7 +9,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "DeliveryPage" });
-  return { title: t("title") };
+  return { title: t("title"), description: t("metaDescription") };
 }
 
 export default async function DeliveryPage({ params }: Props) {
@@ -21,6 +22,10 @@ export default async function DeliveryPage({ params }: Props) {
     { titleKey: "hoursTitle", bodyKey: "hoursDetail" },
     { titleKey: "orderTitle", bodyKey: "orderDetail" },
   ] as const;
+
+  const grabUrl = process.env.NEXT_PUBLIC_GRABFOOD_URL ?? null;
+  const linemanUrl = process.env.NEXT_PUBLIC_LINEMAN_URL ?? null;
+  const hasOrderLinks = grabUrl !== null || linemanUrl !== null;
 
   return (
     <div
@@ -82,6 +87,68 @@ export default async function DeliveryPage({ params }: Props) {
           </article>
         ))}
       </div>
+
+      {/* Order CTAs — shown only when store URLs are configured */}
+      {hasOrderLinks && (
+        <div style={{ marginTop: "3rem" }}>
+          <p
+            style={{
+              fontSize: "var(--text-xs)",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "var(--color-ink-dim)",
+              marginBottom: "1rem",
+            }}
+          >
+            {t("orderNowLabel")}
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {grabUrl && (
+              <Link
+                href={grabUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+                style={{
+                  display: "inline-block",
+                  padding: "0.75rem 1.75rem",
+                  borderRadius: "var(--radius-pill)",
+                  background: "var(--color-forest)",
+                  color: "var(--color-cream)",
+                  fontSize: "var(--text-sm)",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  letterSpacing: "0.03em",
+                }}
+              >
+                {t("orderGrab")}
+              </Link>
+            )}
+            {linemanUrl && (
+              <Link
+                href={linemanUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+                style={{
+                  display: "inline-block",
+                  padding: "0.75rem 1.75rem",
+                  borderRadius: "var(--radius-pill)",
+                  border: "2px solid var(--color-forest)",
+                  color: "var(--color-forest)",
+                  fontSize: "var(--text-sm)",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  letterSpacing: "0.03em",
+                }}
+              >
+                {t("orderLineman")}
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
