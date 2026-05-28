@@ -3,6 +3,7 @@
     "skipToContent": "Vai al contenuto principale"
   },
   "Home": {
+    "metaDescription": "Ristorante plant-forward ad Ari, Bangkok. Piatti stagionali, comfort food globale, senza prediche.",
     "headline": "SVOLTA",
     "tagline": "Cucina stagionale curata. Pochi piatti, materie prime serie, zero sprechi.",
     "heroCta": "Vedi il menu",
@@ -27,11 +28,13 @@
   },
   "MenuPage": {
     "title": "Menu",
+    "metaDescription": "Il menu di SVOLTA — pasta italiana, street food giapponese, hummus e altro. Plant-based, senza etichette.",
     "intro": "Il nostro menu è stagionale e cambia regolarmente. Quello che vedi oggi potrebbe non esserci la settimana prossima — ed è questa l'intenzione.",
     "noItems": "Il menu è in aggiornamento. Torna presto."
   },
   "ConceptPage": {
     "title": "L'idea",
+    "metaDescription": "La storia dietro SVOLTA — una cucina plant-forward a Bangkok nata da 35 paesi di mangiare bene.",
     "intro": "SVOLTA in italiano significa quello che dice: una svolta, un cambio di rotta. Qui è una cucina che si allontana dall'eccesso.",
     "section1Title": "Plant-forward, senza predicare",
     "section1Body": "Cuciniamo verdure, legumi e cereali con la stessa cura di solito riservata alla carne. Niente etichette, niente manifesti — solo cibo che sa di quello che è.",
@@ -42,6 +45,7 @@
   },
   "DeliveryPage": {
     "title": "Delivery",
+    "metaDescription": "Delivery di SVOLTA nella zona di Ari, Bangkok. Ordina su GrabFood o LINE MAN. Pranzo e cena.",
     "intro": "Consegniamo nella zona di Ari. Fresco, confezionato con cura, pronto da mangiare.",
     "zoneTitle": "Zona di consegna",
     "zoneDetail": "Al momento consegniamo entro 5 km dalla stazione BTS di Ari — coprendo Phaya Thai, Saphan Khwai e le zone limitrofe.",
@@ -55,6 +59,7 @@
   },
   "ContactPage": {
     "title": "Contatti",
+    "metaDescription": "Trovaci ad Ari, Bangkok — a due passi dalla stazione BTS Ari. Orari, indirizzo e mappa.",
     "intro": "Vieni a trovarci. Siamo ad Ari — a due passi dalla stazione BTS Ari.",
     "addressLabel": "Indirizzo",
     "address": "Ari, Phaya Thai, Bangkok 10400",
