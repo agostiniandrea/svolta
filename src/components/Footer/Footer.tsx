@@ -42,7 +42,7 @@ export default async function Footer({ locale }: Props) {
             SVOLTA
           </p>
           <div style={{ marginBottom: "0.75rem" }}>
-            <OpenNowBadge />
+            <OpenNowBadge dark />
           </div>
           <p style={{ fontSize: "var(--text-sm)", opacity: 0.6, lineHeight: 1.7 }}>
             {t("tagline")}

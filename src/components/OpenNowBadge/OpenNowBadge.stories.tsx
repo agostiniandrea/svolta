@@ -45,3 +45,29 @@ export const ClosedAfterHours: Story = {
     jest.useRealTimers();
   },
 };
+
+export const OpenDark: Story = {
+  args: { dark: true },
+  parameters: { backgrounds: { default: "dark" } },
+  beforeEach() {
+    const mockDate = new Date("2025-01-07T06:00:00Z");
+    jest.useFakeTimers();
+    jest.setSystemTime(mockDate);
+  },
+  afterEach() {
+    jest.useRealTimers();
+  },
+};
+
+export const ClosedDark: Story = {
+  args: { dark: true },
+  parameters: { backgrounds: { default: "dark" } },
+  beforeEach() {
+    const mockDate = new Date("2025-01-06T06:00:00Z");
+    jest.useFakeTimers();
+    jest.setSystemTime(mockDate);
+  },
+  afterEach() {
+    jest.useRealTimers();
+  },
+};
