@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "lhci": "lhci autorun"
+    "lhci": "lhci autorun",
+    "lhci:mobile": "lhci autorun --config=.lighthouserc.mobile.json"
   },
   "dependencies": {
     "@sanity/image-url": "^2.1.1",
