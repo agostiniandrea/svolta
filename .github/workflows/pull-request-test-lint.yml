@@ -55,6 +55,9 @@ jobs:
       - name: Type-check TypeScript
         run: yarn typecheck
 
+      - name: Run tests
+        run: yarn test
+
       - name: Run lint
         run: yarn lint
 

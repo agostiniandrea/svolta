@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import LocaleSwitcher from "./LocaleSwitcher";
+import LocaleSwitcher from "../LocaleSwitcher";
 
 const NAV_PATHS = [
   { path: "menu", label: "menu" as const },

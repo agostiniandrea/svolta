@@ -2,9 +2,7 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import JsonLd from "@/components/JsonLd";
+import { Header, Footer, JsonLd } from "@/components";
 
 type Props = {
   children: React.ReactNode;
