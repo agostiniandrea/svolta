@@ -69,6 +69,15 @@
     "hours": "Tue – Sun: 11:30 – 21:00\nClosed Monday",
     "mapTitle": "Find us on the map"
   },
+  "OpenNow": {
+    "open": "Open now",
+    "closed": "Closed"
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "body": "This page doesn't exist or has moved.",
+    "cta": "Back to home"
+  },
   "Footer": {
     "tagline": "Seasonal plant-forward cuisine in Ari, Bangkok.",
     "rights": "© {year} SVOLTA. All rights reserved."

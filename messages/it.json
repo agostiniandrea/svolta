@@ -69,6 +69,15 @@
     "hours": "Mar – Dom: 11:30 – 21:00\nChiuso il lunedì",
     "mapTitle": "Trovaci sulla mappa"
   },
+  "OpenNow": {
+    "open": "Aperto ora",
+    "closed": "Chiuso"
+  },
+  "NotFound": {
+    "title": "Pagina non trovata",
+    "body": "Questa pagina non esiste o è stata spostata.",
+    "cta": "Torna alla home"
+  },
   "Footer": {
     "tagline": "Cucina stagionale plant-forward ad Ari, Bangkok.",
     "rights": "© {year} SVOLTA. Tutti i diritti riservati."

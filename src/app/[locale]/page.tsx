@@ -119,13 +119,16 @@ export default async function HomePage({ params }: Props) {
               {t("conceptCta")} →
             </Link>
           </div>
-          <div
+          {/* Replace div with next/image once food photo is available */}
+          <figure
             aria-hidden="true"
             style={{
+              margin: 0,
               background: "var(--color-cream)",
               borderRadius: "var(--radius-lg)",
               aspectRatio: "4/3",
               minHeight: "16rem",
+              overflow: "hidden",
             }}
           />
         </div>
@@ -225,13 +228,16 @@ export default async function HomePage({ params }: Props) {
               {t("locationCta")} →
             </Link>
           </div>
-          <div
+          {/* Replace div with next/image once location photo is available */}
+          <figure
             aria-hidden="true"
             style={{
+              margin: 0,
               background: "rgba(255,255,255,0.08)",
               borderRadius: "var(--radius-lg)",
               aspectRatio: "16/9",
               minHeight: "12rem",
+              overflow: "hidden",
             }}
           />
         </div>
