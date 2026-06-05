@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | SVOLTA",
   },
   description:
-    "Cucina stagionale curata. Pochi piatti, materie prime serie, zero sprechi.",
+    "Plant-based Italian-Japanese-Middle Eastern kitchen in Ari, Bangkok. Tigelle, carbonara, takoyaki, nasi goreng.",
   metadataBase: new URL(siteUrl),
   openGraph: {
     siteName: "SVOLTA",

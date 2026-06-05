@@ -21,7 +21,11 @@ function isOpenInBangkok(): boolean {
   return time >= 11 * 60 + 30 && time < 21 * 60;
 }
 
-export default function OpenNowBadge() {
+// On dark backgrounds the light-mode colours (#2c5016, #6b6b6b) have < 3:1
+// contrast against #1a1a1a. Pass dark=true (footer) to use WCAG AA-safe values:
+//   open  → #6ec6a0  (7.8:1 on #1a1a1a)
+//   closed → #9a9a9a  (5.7:1 on #1a1a1a)
+export default function OpenNowBadge({ dark = false }: { dark?: boolean }) {
   const t = useTranslations("OpenNow");
   const [open, setOpen] = useState<boolean | null>(null);
 
@@ -33,6 +37,10 @@ export default function OpenNowBadge() {
 
   if (open === null) return null;
 
+  const color = dark
+    ? open ? "#6ec6a0" : "#9a9a9a"
+    : open ? "#2c5016" : "var(--color-ink-dim)";
+
   return (
     <span
       style={{
@@ -43,7 +51,7 @@ export default function OpenNowBadge() {
         fontWeight: 600,
         letterSpacing: "0.05em",
         textTransform: "uppercase",
-        color: open ? "#2c5016" : "var(--color-ink-dim)",
+        color,
       }}
     >
       <span
@@ -51,7 +59,7 @@ export default function OpenNowBadge() {
           width: 7,
           height: 7,
           borderRadius: "50%",
-          background: open ? "#2c5016" : "var(--color-ink-dim)",
+          background: color,
           flexShrink: 0,
         }}
       />

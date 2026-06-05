@@ -1,6 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Map from "@/components/Map";
-import OpenNowBadge from "@/components/OpenNowBadge";
+import { Map } from "@/components";
 import type { Metadata } from "next";
 import { client } from "@/sanity/client";
 import { settingsQuery, type SanitySettings } from "@/sanity/queries";
@@ -50,9 +49,6 @@ export default async function ContactPage({ params }: Props) {
       }}
     >
       <header style={{ marginBottom: "3rem", maxWidth: "40rem" }}>
-        <div style={{ marginBottom: "0.75rem" }}>
-          <OpenNowBadge />
-        </div>
         <h1
           style={{
             fontFamily: "var(--font-serif)",

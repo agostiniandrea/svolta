@@ -8,7 +8,7 @@ export default function JsonLd({ locale, siteUrl }: Props) {
     "@context": "https://schema.org",
     "@type": "Restaurant",
     name: "SVOLTA",
-    description: "Plant-forward restaurant in Ari, Bangkok.",
+    description: "Plant-based Italian-Japanese-Middle Eastern kitchen in Ari, Bangkok.",
     url: siteUrl,
     address: {
       "@type": "PostalAddress",

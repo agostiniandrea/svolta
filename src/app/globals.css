@@ -1,40 +1,40 @@
 @import "tailwindcss";
 
 /* ============================================
-   DESIGN TOKENS — modifica qui per cambiare
-   l'identità visiva dell'intero sito.
+   DESIGN TOKENS — edit here to change the
+   visual identity of the entire site.
    ============================================ */
 
 @theme {
   /* --- Brand palette --- */
-  /* forest su cream: 8.7:1 — WCAG AA ✓ per testo normale e grande */
+  /* forest on cream: 8.7:1 — WCAG AA ✓ for normal and large text */
   --color-forest: #2c5016;
-  /* earth: 3.2:1 su cream — solo per testo grande (≥18px o bold ≥14px) o decorativo */
+  /* earth: 3.2:1 on cream — large text only (≥18px or bold ≥14px) or decorative */
   --color-earth: #b85c38;
-  /* cream: sfondo pagina principale */
+  /* cream: main page background */
   --color-cream: #faf9f4;
 
-  /* --- Testi (tutti WCAG AA su cream) --- */
-  --color-ink: #1a1a1a;       /* 17.4:1 — testo body */
-  --color-ink-soft: #4a4a4a;  /*  8.3:1 — testo secondario */
-  --color-ink-dim: #6b6b6b;   /*  4.6:1 — minimo AA per testo normale */
+  /* --- Text (all WCAG AA on cream) --- */
+  --color-ink: #1a1a1a;       /* 17.4:1 — body text */
+  --color-ink-soft: #4a4a4a;  /*  8.3:1 — secondary text */
+  --color-ink-dim: #6b6b6b;   /*  4.6:1 — minimum AA for normal text */
 
-  /* --- Superfici --- */
+  /* --- Surfaces --- */
   --color-page: #faf9f4;
   --color-card: #ffffff;
-  --color-void: #1a1a1a;      /* sezioni scure, footer */
+  --color-void: #1a1a1a;      /* dark sections, footer */
 
-  /* --- Stati UI --- */
-  --color-focus: #2c5016;     /* ring di focus — visibile su tutti i bg */
-  --color-error: #b91c1c;     /*  5.9:1 su bianco — WCAG AA ✓ */
+  /* --- UI states --- */
+  --color-focus: #2c5016;     /* focus ring — visible on all backgrounds */
+  --color-error: #b91c1c;     /*  5.9:1 on white — WCAG AA ✓ */
 
-  /* --- Tipografia ---
-     I valori --font-dm-sans e --font-playfair vengono iniettati
-     dal RootLayout via next/font. Cambia i font lì per aggiornarli. */
+  /* --- Typography ---
+     --font-dm-sans and --font-playfair are injected by RootLayout
+     via next/font. Change the fonts there to update them here. */
   --font-sans: var(--font-dm-sans, "DM Sans"), system-ui, sans-serif;
   --font-serif: var(--font-playfair, "Playfair Display"), Georgia, serif;
 
-  /* --- Dimensioni testo --- */
+  /* --- Text sizes --- */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -49,7 +49,7 @@
   /* --- Layout --- */
   --max-w-container: 75rem; /* 1200px */
 
-  /* --- Spaziatura sezioni --- */
+  /* --- Section spacing --- */
   --spacing-section: 5rem;
 
   /* --- Border radius --- */
@@ -73,6 +73,7 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    scrollbar-gutter: stable;
   }
 
   body {
@@ -95,7 +96,7 @@
     font-weight: 600;
   }
 
-  /* Focus ring accessibile per navigazione da tastiera (WCAG 2.4.7) */
+  /* Accessible focus ring for keyboard navigation (WCAG 2.4.7) */
   :focus-visible {
     outline: 3px solid var(--color-focus);
     outline-offset: 3px;
@@ -106,7 +107,7 @@
     outline: none;
   }
 
-  /* Skip-to-content per screen reader (WCAG 2.4.1) */
+  /* Skip-to-content link for screen readers (WCAG 2.4.1) */
   .skip-link {
     position: absolute;
     left: 1rem;
@@ -127,7 +128,7 @@
     transform: translateY(0);
   }
 
-  /* Primary button — usare className="btn-primary" per hover/active consistenti */
+  /* Primary button — use className="btn-primary" for consistent hover/active states */
   .btn-primary {
     transition: opacity 150ms ease;
   }
@@ -140,7 +141,7 @@
     opacity: 0.7;
   }
 
-  /* Rispetta la preferenza di movimento ridotto (WCAG 2.3.3) */
+  /* Respect reduced-motion preference (WCAG 2.3.3) */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
+import OpenNowBadge from "../OpenNowBadge";
 
 const NAV_PATHS = [
   { path: "menu", label: "menu" as const },
@@ -35,11 +36,14 @@ export default async function Footer({ locale }: Props) {
               fontFamily: "var(--font-serif)",
               fontSize: "var(--text-xl)",
               fontWeight: 600,
-              marginBottom: "0.75rem",
+              marginBottom: "0.5rem",
             }}
           >
             SVOLTA
           </p>
+          <div style={{ marginBottom: "0.75rem" }}>
+            <OpenNowBadge dark />
+          </div>
           <p style={{ fontSize: "var(--text-sm)", opacity: 0.6, lineHeight: 1.7 }}>
             {t("tagline")}
           </p>
