@@ -118,11 +118,12 @@ export default async function MenuPage({ params }: Props) {
                         style={{
                           position: "relative",
                           aspectRatio: "3/2",
+                          minHeight: "10rem",
                           borderRadius: "var(--radius-lg)",
                           overflow: "hidden",
                           marginBottom: "0.6rem",
                           background: dish.imageUrl
-                            ? undefined
+                            ? "var(--color-card)"
                             : "linear-gradient(135deg, color-mix(in srgb, var(--color-forest) 18%, var(--color-card)) 0%, color-mix(in srgb, var(--color-forest) 10%, var(--color-card)) 100%)",
                         }}
                       >
