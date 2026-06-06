@@ -10,10 +10,17 @@ export const revalidate = 3600;
 // Keys are lowercased for case-insensitive matching against dish.name.en.
 const CONCEPT_IMAGES: Record<string, string> = {
   "tigella basket": "/images/dishes/tigella-basket.jpeg",
+  "tagliatelle al ragù": "/images/dishes/tagliatelle-ragu.jpeg",
   "tagliatelle al ragu": "/images/dishes/tagliatelle-ragu.jpeg",
   "okonomiyaki": "/images/dishes/okonomiyaki.jpeg",
   "vegan carbonara": "/images/dishes/vegan-carbonara.jpeg",
   "nasi goreng": "/images/dishes/nasi-goreng.jpeg",
+  "crispy skin potatoes": "/images/dishes/crispy-skin-potatoes.jpeg",
+  "amsterdam fries": "/images/dishes/crispy-skin-potatoes.jpeg",
+  "mashed potatoes": "/images/dishes/crispy-skin-potatoes.jpeg",
+  "rigatoni al pistacchio": "/images/dishes/pistachio-pasta.jpeg",
+  "linguine al pesto di pistacchio": "/images/dishes/pistachio-pasta.jpeg",
+  "linguine al pistacchio": "/images/dishes/pistachio-pasta.jpeg",
 };
 
 function conceptImage(nameEn: string | undefined): string | null {
