@@ -118,7 +118,7 @@ export default async function MenuPage({ params }: Props) {
                         <div
                           style={{
                             position: "relative",
-                            aspectRatio: "4/3",
+                            aspectRatio: "3/2",
                             borderRadius: "var(--radius)",
                             overflow: "hidden",
                             marginBottom: "0.75rem",
