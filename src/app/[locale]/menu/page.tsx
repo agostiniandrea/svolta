@@ -131,16 +131,15 @@ export default async function MenuPage({ params }: Props) {
                     const dishImage =
                       dish.imageUrl ?? conceptImage(dish.name.en ?? undefined);
                     return (
-                    <li key={dish._id} style={{ textAlign: "center" }}>
-                      {dishImage && (
+                    <li key={dish._id}>
+                      {dishImage ? (
                         <div
                           style={{
                             position: "relative",
-                            width: "min(100%, 14rem)",
-                            aspectRatio: "1/1",
-                            borderRadius: "50%",
+                            aspectRatio: "3/2",
+                            borderRadius: "var(--radius-lg)",
                             overflow: "hidden",
-                            margin: "0 auto 1rem",
+                            marginBottom: "0.6rem",
                           }}
                         >
                           <Image
@@ -148,37 +147,75 @@ export default async function MenuPage({ params }: Props) {
                             alt={dish.name[loc] ?? dish.name.en ?? ""}
                             fill
                             style={{ objectFit: "cover" }}
-                            sizes="(max-width: 640px) 56vw, 14rem"
+                            sizes="(max-width: 640px) 100vw, 50vw"
                           />
-                        </div>
-                      )}
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "baseline",
-                          gap: "0.75rem",
-                          marginBottom: "0.2rem",
-                          flexWrap: "wrap",
-                        }}
-                      >
-                        <p style={{ fontWeight: 600, color: "var(--color-ink)", margin: 0 }}>
-                          {dish.name[loc] ?? dish.name.en ?? ""}
-                        </p>
-                        {dish.price != null && (
-                          <p
+                          <div
                             style={{
-                              fontWeight: 600,
-                              color: "var(--color-forest)",
-                              fontSize: "var(--text-sm)",
-                              whiteSpace: "nowrap",
-                              margin: 0,
+                              position: "absolute",
+                              inset: 0,
+                              background:
+                                "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 55%, transparent 100%)",
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "flex-end",
+                              padding: "1rem 1.1rem",
                             }}
                           >
-                            ฿{dish.price}
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "baseline",
+                                gap: "0.75rem",
+                              }}
+                            >
+                              <p style={{ fontWeight: 600, color: "#fff", margin: 0 }}>
+                                {dish.name[loc] ?? dish.name.en ?? ""}
+                              </p>
+                              {dish.price != null && (
+                                <p
+                                  style={{
+                                    fontWeight: 600,
+                                    color: "rgba(255,255,255,0.85)",
+                                    fontSize: "var(--text-sm)",
+                                    whiteSpace: "nowrap",
+                                    margin: 0,
+                                  }}
+                                >
+                                  ฿{dish.price}
+                                </p>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "baseline",
+                            gap: "1rem",
+                            marginBottom: "0.2rem",
+                          }}
+                        >
+                          <p style={{ fontWeight: 600, color: "var(--color-ink)", margin: 0 }}>
+                            {dish.name[loc] ?? dish.name.en ?? ""}
                           </p>
-                        )}
-                      </div>
+                          {dish.price != null && (
+                            <p
+                              style={{
+                                fontWeight: 600,
+                                color: "var(--color-forest)",
+                                fontSize: "var(--text-sm)",
+                                whiteSpace: "nowrap",
+                                margin: 0,
+                              }}
+                            >
+                              ฿{dish.price}
+                            </p>
+                          )}
+                        </div>
+                      )}
                       {dish.description?.[loc] && (
                         <p
                           style={{
