@@ -6,14 +6,21 @@ import { activeMenuQuery, type ActiveMenu, type SanityDish } from "@/sanity/quer
 
 export const revalidate = 3600;
 
-// Temporary local images for concept demo — replace by uploading photos in Sanity Studio
+// Temporary local images for concept demo — replace by uploading photos in Sanity Studio.
+// Keys are lowercased for case-insensitive matching against dish.name.en.
 const CONCEPT_IMAGES: Record<string, string> = {
-  "Tigella Basket": "/images/dishes/tigella-basket.jpg",
-  "Tagliatelle al Ragù": "/images/dishes/tagliatelle-ragu.jpg",
-  "Okonomiyaki": "/images/dishes/okonomiyaki.jpg",
-  "Vegan Carbonara": "/images/dishes/vegan-carbonara.jpg",
-  "Nasi Goreng": "/images/dishes/nasi-goreng.jpg",
+  "tigella basket": "/images/dishes/tigella-basket.jpg",
+  "tagliatelle al ragù": "/images/dishes/tagliatelle-ragu.jpg",
+  "tagliatelle al ragu": "/images/dishes/tagliatelle-ragu.jpg",
+  "okonomiyaki": "/images/dishes/okonomiyaki.jpg",
+  "vegan carbonara": "/images/dishes/vegan-carbonara.jpg",
+  "nasi goreng": "/images/dishes/nasi-goreng.jpg",
 };
+
+function conceptImage(nameEn: string | undefined): string | null {
+  if (!nameEn) return null;
+  return CONCEPT_IMAGES[nameEn.toLowerCase()] ?? null;
+}
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -123,9 +130,7 @@ export default async function MenuPage({ params }: Props) {
                 >
                   {dishes.map((dish) => {
                     const dishImage =
-                      dish.imageUrl ??
-                      CONCEPT_IMAGES[dish.name.en ?? ""] ??
-                      null;
+                      dish.imageUrl ?? conceptImage(dish.name.en ?? undefined);
                     return (
                     <li key={dish._id}>
                       {dishImage && (
