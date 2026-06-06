@@ -82,6 +82,16 @@
     "tagline": "Cucina plant-based italo-giapponese-medio orientale. Ari, Bangkok.",
     "rights": "© {year} SVOLTA. Tutti i diritti riservati."
   },
+  "Allergens": {
+    "Gluten": "Glutine",
+    "Soy": "Soia",
+    "Tree nuts": "Frutta a guscio",
+    "Peanuts": "Arachidi",
+    "Sesame": "Sesamo",
+    "Celery": "Sedano",
+    "Mustard": "Senape",
+    "Lupin": "Lupini"
+  },
   "MenuCategories": {
     "antipasto": "Antipasto",
     "primo": "Primo",

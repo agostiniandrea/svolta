@@ -21,6 +21,7 @@ export default async function MenuPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "MenuPage" });
   const tCat = await getTranslations({ locale, namespace: "MenuCategories" });
+  const tAllergen = await getTranslations({ locale, namespace: "Allergens" });
 
   const menu = await client.fetch<ActiveMenu | null>(
     activeMenuQuery,
@@ -113,16 +114,19 @@ export default async function MenuPage({ params }: Props) {
                 >
                   {dishes.map((dish) => (
                     <li key={dish._id}>
-                      {dish.imageUrl && (
-                        <div
-                          style={{
-                            position: "relative",
-                            aspectRatio: "4/3",
-                            borderRadius: "var(--radius)",
-                            overflow: "hidden",
-                            marginBottom: "0.75rem",
-                          }}
-                        >
+                      <div
+                        style={{
+                          position: "relative",
+                          aspectRatio: "4/3",
+                          borderRadius: "var(--radius)",
+                          overflow: "hidden",
+                          marginBottom: "0.75rem",
+                          background: dish.imageUrl
+                            ? undefined
+                            : "linear-gradient(135deg, color-mix(in srgb, var(--color-forest) 18%, var(--color-card)) 0%, color-mix(in srgb, var(--color-forest) 10%, var(--color-card)) 100%)",
+                        }}
+                      >
+                        {dish.imageUrl && (
                           <Image
                             src={dish.imageUrl}
                             alt={dish.name[loc] ?? dish.name.en ?? ""}
@@ -130,8 +134,8 @@ export default async function MenuPage({ params }: Props) {
                             style={{ objectFit: "cover" }}
                             sizes="(max-width: 640px) 100vw, 50vw"
                           />
-                        </div>
-                      )}
+                        )}
+                      </div>
                       <div
                         style={{
                           display: "flex",
@@ -178,7 +182,13 @@ export default async function MenuPage({ params }: Props) {
                             letterSpacing: "0.02em",
                           }}
                         >
-                          {dish.allergens.join(", ")}
+                          {dish.allergens
+                            .map((a) =>
+                              tAllergen(
+                                a as "Gluten" | "Soy" | "Tree nuts" | "Peanuts" | "Sesame" | "Celery" | "Mustard" | "Lupin"
+                              )
+                            )
+                            .join(", ")}
                         </p>
                       )}
                     </li>

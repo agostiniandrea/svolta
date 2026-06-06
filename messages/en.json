@@ -82,6 +82,16 @@
     "tagline": "Italian-Japanese-Middle Eastern plant-based kitchen. Ari, Bangkok.",
     "rights": "© {year} SVOLTA. All rights reserved."
   },
+  "Allergens": {
+    "Gluten": "Gluten",
+    "Soy": "Soy",
+    "Tree nuts": "Tree nuts",
+    "Peanuts": "Peanuts",
+    "Sesame": "Sesame",
+    "Celery": "Celery",
+    "Mustard": "Mustard",
+    "Lupin": "Lupin"
+  },
   "MenuCategories": {
     "antipasto": "Starter",
     "primo": "First course",

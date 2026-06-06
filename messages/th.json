@@ -82,6 +82,16 @@
     "tagline": "ครัว plant-based อิตาลี-ญี่ปุ่น-ตะวันออกกลาง ที่อารีย์ กรุงเทพฯ",
     "rights": "© {year} SVOLTA สงวนลิขสิทธิ์"
   },
+  "Allergens": {
+    "Gluten": "กลูเตน",
+    "Soy": "ถั่วเหลือง",
+    "Tree nuts": "ถั่วเปลือกแข็ง",
+    "Peanuts": "ถั่วลิสง",
+    "Sesame": "งา",
+    "Celery": "คื่นฉ่าย",
+    "Mustard": "มัสตาร์ด",
+    "Lupin": "ลูพิน"
+  },
   "MenuCategories": {
     "antipasto": "อาหารเรียกน้ำย่อย",
     "primo": "อาหารจานแรก",
