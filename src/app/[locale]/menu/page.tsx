@@ -131,15 +131,16 @@ export default async function MenuPage({ params }: Props) {
                     const dishImage =
                       dish.imageUrl ?? conceptImage(dish.name.en ?? undefined);
                     return (
-                    <li key={dish._id}>
+                    <li key={dish._id} style={{ textAlign: "center" }}>
                       {dishImage && (
                         <div
                           style={{
                             position: "relative",
-                            aspectRatio: "3/2",
-                            borderRadius: "var(--radius)",
+                            width: "min(100%, 14rem)",
+                            aspectRatio: "1/1",
+                            borderRadius: "50%",
                             overflow: "hidden",
-                            marginBottom: "0.75rem",
+                            margin: "0 auto 1rem",
                           }}
                         >
                           <Image
@@ -147,17 +148,18 @@ export default async function MenuPage({ params }: Props) {
                             alt={dish.name[loc] ?? dish.name.en ?? ""}
                             fill
                             style={{ objectFit: "cover" }}
-                            sizes="(max-width: 640px) 100vw, 50vw"
+                            sizes="(max-width: 640px) 56vw, 14rem"
                           />
                         </div>
                       )}
                       <div
                         style={{
                           display: "flex",
-                          justifyContent: "space-between",
+                          justifyContent: "center",
                           alignItems: "baseline",
-                          gap: "1rem",
+                          gap: "0.75rem",
                           marginBottom: "0.2rem",
+                          flexWrap: "wrap",
                         }}
                       >
                         <p style={{ fontWeight: 600, color: "var(--color-ink)", margin: 0 }}>
