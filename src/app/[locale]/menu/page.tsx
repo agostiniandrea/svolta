@@ -9,12 +9,11 @@ export const revalidate = 3600;
 // Temporary local images for concept demo — replace by uploading photos in Sanity Studio.
 // Keys are lowercased for case-insensitive matching against dish.name.en.
 const CONCEPT_IMAGES: Record<string, string> = {
-  "tigella basket": "/images/dishes/tigella-basket.jpg",
-  "tagliatelle al ragù": "/images/dishes/tagliatelle-ragu.jpg",
-  "tagliatelle al ragu": "/images/dishes/tagliatelle-ragu.jpg",
-  "okonomiyaki": "/images/dishes/okonomiyaki.jpg",
-  "vegan carbonara": "/images/dishes/vegan-carbonara.jpg",
-  "nasi goreng": "/images/dishes/nasi-goreng.jpg",
+  "tigella basket": "/images/dishes/tigella-basket.jpeg",
+  "tagliatelle al ragu": "/images/dishes/tagliatelle-ragu.jpeg",
+  "okonomiyaki": "/images/dishes/okonomiyaki.jpeg",
+  "vegan carbonara": "/images/dishes/vegan-carbonara.jpeg",
+  "nasi goreng": "/images/dishes/nasi-goreng.jpeg",
 };
 
 function conceptImage(nameEn: string | undefined): string | null {
