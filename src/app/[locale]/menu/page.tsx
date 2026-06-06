@@ -77,10 +77,7 @@ export default async function MenuPage({ params }: Props) {
         </p>
       </header>
 
-      <div
-        className="grid gap-10"
-        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(20rem, 1fr))" }}
-      >
+      <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
         {categories
           .filter((cat) => byCategory[cat].length > 0)
           .map((cat) => {
@@ -93,7 +90,7 @@ export default async function MenuPage({ params }: Props) {
                     fontFamily: "var(--font-serif)",
                     fontSize: "var(--text-xl)",
                     color: "var(--color-ink)",
-                    marginBottom: "1rem",
+                    marginBottom: "1.25rem",
                     paddingBottom: "0.5rem",
                     borderBottom:
                       "1px solid color-mix(in srgb, var(--color-ink) 12%, transparent)",
@@ -107,9 +104,10 @@ export default async function MenuPage({ params }: Props) {
                     listStyle: "none",
                     margin: 0,
                     padding: 0,
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "1.25rem",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fill, minmax(18rem, 1fr))",
+                    gap: "1.5rem",
+                    alignItems: "start",
                   }}
                 >
                   {dishes.map((dish) => (
@@ -124,7 +122,7 @@ export default async function MenuPage({ params }: Props) {
                           marginBottom: "0.6rem",
                           background: dish.imageUrl
                             ? "var(--color-card)"
-                            : "linear-gradient(135deg, color-mix(in srgb, var(--color-forest) 18%, var(--color-card)) 0%, color-mix(in srgb, var(--color-forest) 10%, var(--color-card)) 100%)",
+                            : "var(--color-forest)",
                         }}
                       >
                         {dish.imageUrl && (
@@ -133,8 +131,32 @@ export default async function MenuPage({ params }: Props) {
                             alt={dish.name[loc] ?? dish.name.en ?? ""}
                             fill
                             style={{ objectFit: "cover" }}
-                            sizes="(max-width: 640px) 100vw, 50vw"
+                            sizes="(max-width: 640px) 100vw, 33vw"
                           />
+                        )}
+                        {!dish.imageUrl && (
+                          <div
+                            style={{
+                              position: "absolute",
+                              inset: 0,
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "var(--font-serif)",
+                                fontSize: "var(--text-2xl)",
+                                color: "rgba(255,255,255,0.18)",
+                                letterSpacing: "0.35em",
+                                fontWeight: 400,
+                                userSelect: "none",
+                              }}
+                            >
+                              SVOLTA
+                            </span>
+                          </div>
                         )}
                         <div
                           style={{
@@ -142,7 +164,7 @@ export default async function MenuPage({ params }: Props) {
                             inset: 0,
                             background: dish.imageUrl
                               ? "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 55%, transparent 100%)"
-                              : "linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%)",
+                              : "linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 55%)",
                             display: "flex",
                             flexDirection: "column",
                             justifyContent: "flex-end",
