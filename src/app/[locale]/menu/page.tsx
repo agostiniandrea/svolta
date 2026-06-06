@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { client } from "@/sanity/client";
@@ -112,6 +113,25 @@ export default async function MenuPage({ params }: Props) {
                 >
                   {dishes.map((dish) => (
                     <li key={dish._id}>
+                      {dish.imageUrl && (
+                        <div
+                          style={{
+                            position: "relative",
+                            aspectRatio: "4/3",
+                            borderRadius: "var(--radius)",
+                            overflow: "hidden",
+                            marginBottom: "0.75rem",
+                          }}
+                        >
+                          <Image
+                            src={dish.imageUrl}
+                            alt={dish.name[loc] ?? dish.name.en ?? ""}
+                            fill
+                            style={{ objectFit: "cover" }}
+                            sizes="(max-width: 640px) 100vw, 50vw"
+                          />
+                        </div>
+                      )}
                       <div
                         style={{
                           display: "flex",
