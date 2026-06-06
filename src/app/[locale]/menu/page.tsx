@@ -114,19 +114,16 @@ export default async function MenuPage({ params }: Props) {
                 >
                   {dishes.map((dish) => (
                     <li key={dish._id}>
-                      <div
-                        style={{
-                          position: "relative",
-                          aspectRatio: "4/3",
-                          borderRadius: "var(--radius)",
-                          overflow: "hidden",
-                          marginBottom: "0.75rem",
-                          background: dish.imageUrl
-                            ? undefined
-                            : "linear-gradient(135deg, color-mix(in srgb, var(--color-forest) 18%, var(--color-card)) 0%, color-mix(in srgb, var(--color-forest) 10%, var(--color-card)) 100%)",
-                        }}
-                      >
-                        {dish.imageUrl && (
+                      {dish.imageUrl && (
+                        <div
+                          style={{
+                            position: "relative",
+                            aspectRatio: "4/3",
+                            borderRadius: "var(--radius)",
+                            overflow: "hidden",
+                            marginBottom: "0.75rem",
+                          }}
+                        >
                           <Image
                             src={dish.imageUrl}
                             alt={dish.name[loc] ?? dish.name.en ?? ""}
@@ -134,8 +131,8 @@ export default async function MenuPage({ params }: Props) {
                             style={{ objectFit: "cover" }}
                             sizes="(max-width: 640px) 100vw, 50vw"
                           />
-                        )}
-                      </div>
+                        </div>
+                      )}
                       <div
                         style={{
                           display: "flex",
