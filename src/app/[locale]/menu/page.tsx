@@ -6,6 +6,15 @@ import { activeMenuQuery, type ActiveMenu, type SanityDish } from "@/sanity/quer
 
 export const revalidate = 3600;
 
+// Temporary local images for concept demo — replace by uploading photos in Sanity Studio
+const CONCEPT_IMAGES: Record<string, string> = {
+  "Tigella Basket": "/images/dishes/tigella-basket.jpg",
+  "Tagliatelle al Ragù": "/images/dishes/tagliatelle-ragu.jpg",
+  "Okonomiyaki": "/images/dishes/okonomiyaki.jpg",
+  "Vegan Carbonara": "/images/dishes/vegan-carbonara.jpg",
+  "Nasi Goreng": "/images/dishes/nasi-goreng.jpg",
+};
+
 type Props = {
   params: Promise<{ locale: string }>;
 };
@@ -112,9 +121,14 @@ export default async function MenuPage({ params }: Props) {
                     gap: "1.25rem",
                   }}
                 >
-                  {dishes.map((dish) => (
+                  {dishes.map((dish) => {
+                    const dishImage =
+                      dish.imageUrl ??
+                      CONCEPT_IMAGES[dish.name.en ?? ""] ??
+                      null;
+                    return (
                     <li key={dish._id}>
-                      {dish.imageUrl && (
+                      {dishImage && (
                         <div
                           style={{
                             position: "relative",
@@ -125,7 +139,7 @@ export default async function MenuPage({ params }: Props) {
                           }}
                         >
                           <Image
-                            src={dish.imageUrl}
+                            src={dishImage}
                             alt={dish.name[loc] ?? dish.name.en ?? ""}
                             fill
                             style={{ objectFit: "cover" }}
@@ -189,7 +203,8 @@ export default async function MenuPage({ params }: Props) {
                         </p>
                       )}
                     </li>
-                  ))}
+                  );
+                  })}
                 </ul>
               </section>
             );
