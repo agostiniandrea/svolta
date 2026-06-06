@@ -6,28 +6,6 @@ import { activeMenuQuery, type ActiveMenu, type SanityDish } from "@/sanity/quer
 
 export const revalidate = 3600;
 
-// Temporary local images for concept demo — replace by uploading photos in Sanity Studio.
-// Keys are lowercased for case-insensitive matching against dish.name.en.
-const CONCEPT_IMAGES: Record<string, string> = {
-  "tigella basket": "/images/dishes/tigella-basket.jpeg",
-  "tagliatelle al ragù": "/images/dishes/tagliatelle-ragu.jpeg",
-  "tagliatelle al ragu": "/images/dishes/tagliatelle-ragu.jpeg",
-  "okonomiyaki": "/images/dishes/okonomiyaki.jpeg",
-  "vegan carbonara": "/images/dishes/vegan-carbonara.jpeg",
-  "nasi goreng": "/images/dishes/nasi-goreng.jpeg",
-  "crispy skin potatoes": "/images/dishes/crispy-skin-potatoes.jpeg",
-  "amsterdam fries": "/images/dishes/crispy-skin-potatoes.jpeg",
-  "mashed potatoes": "/images/dishes/crispy-skin-potatoes.jpeg",
-  "rigatoni al pistacchio": "/images/dishes/pistachio-pasta.jpeg",
-  "linguine al pesto di pistacchio": "/images/dishes/pistachio-pasta.jpeg",
-  "linguine al pistacchio": "/images/dishes/pistachio-pasta.jpeg",
-};
-
-function conceptImage(nameEn: string | undefined): string | null {
-  if (!nameEn) return null;
-  return CONCEPT_IMAGES[nameEn.toLowerCase()] ?? null;
-}
-
 type Props = {
   params: Promise<{ locale: string }>;
 };
@@ -134,95 +112,69 @@ export default async function MenuPage({ params }: Props) {
                     gap: "1.25rem",
                   }}
                 >
-                  {dishes.map((dish) => {
-                    const dishImage =
-                      dish.imageUrl ?? conceptImage(dish.name.en ?? undefined);
-                    return (
+                  {dishes.map((dish) => (
                     <li key={dish._id}>
-                      {dishImage ? (
-                        <div
-                          style={{
-                            position: "relative",
-                            aspectRatio: "3/2",
-                            borderRadius: "var(--radius-lg)",
-                            overflow: "hidden",
-                            marginBottom: "0.6rem",
-                          }}
-                        >
+                      <div
+                        style={{
+                          position: "relative",
+                          aspectRatio: "3/2",
+                          borderRadius: "var(--radius-lg)",
+                          overflow: "hidden",
+                          marginBottom: "0.6rem",
+                          background: dish.imageUrl
+                            ? undefined
+                            : "linear-gradient(135deg, color-mix(in srgb, var(--color-forest) 18%, var(--color-card)) 0%, color-mix(in srgb, var(--color-forest) 10%, var(--color-card)) 100%)",
+                        }}
+                      >
+                        {dish.imageUrl && (
                           <Image
-                            src={dishImage}
+                            src={dish.imageUrl}
                             alt={dish.name[loc] ?? dish.name.en ?? ""}
                             fill
                             style={{ objectFit: "cover" }}
                             sizes="(max-width: 640px) 100vw, 50vw"
                           />
-                          <div
-                            style={{
-                              position: "absolute",
-                              inset: 0,
-                              background:
-                                "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 55%, transparent 100%)",
-                              display: "flex",
-                              flexDirection: "column",
-                              justifyContent: "flex-end",
-                              padding: "1rem 1.1rem",
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                                alignItems: "baseline",
-                                gap: "0.75rem",
-                              }}
-                            >
-                              <p style={{ fontWeight: 600, color: "#fff", margin: 0 }}>
-                                {dish.name[loc] ?? dish.name.en ?? ""}
-                              </p>
-                              {dish.price != null && (
-                                <p
-                                  style={{
-                                    fontWeight: 600,
-                                    color: "rgba(255,255,255,0.85)",
-                                    fontSize: "var(--text-sm)",
-                                    whiteSpace: "nowrap",
-                                    margin: 0,
-                                  }}
-                                >
-                                  ฿{dish.price}
-                                </p>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      ) : (
+                        )}
                         <div
                           style={{
+                            position: "absolute",
+                            inset: 0,
+                            background: dish.imageUrl
+                              ? "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 55%, transparent 100%)"
+                              : "linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%)",
                             display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "baseline",
-                            gap: "1rem",
-                            marginBottom: "0.2rem",
+                            flexDirection: "column",
+                            justifyContent: "flex-end",
+                            padding: "1rem 1.1rem",
                           }}
                         >
-                          <p style={{ fontWeight: 600, color: "var(--color-ink)", margin: 0 }}>
-                            {dish.name[loc] ?? dish.name.en ?? ""}
-                          </p>
-                          {dish.price != null && (
-                            <p
-                              style={{
-                                fontWeight: 600,
-                                color: "var(--color-forest)",
-                                fontSize: "var(--text-sm)",
-                                whiteSpace: "nowrap",
-                                margin: 0,
-                              }}
-                            >
-                              ฿{dish.price}
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "baseline",
+                              gap: "0.75rem",
+                            }}
+                          >
+                            <p style={{ fontWeight: 600, color: "#fff", margin: 0 }}>
+                              {dish.name[loc] ?? dish.name.en ?? ""}
                             </p>
-                          )}
+                            {dish.price != null && (
+                              <p
+                                style={{
+                                  fontWeight: 600,
+                                  color: "rgba(255,255,255,0.85)",
+                                  fontSize: "var(--text-sm)",
+                                  whiteSpace: "nowrap",
+                                  margin: 0,
+                                }}
+                              >
+                                ฿{dish.price}
+                              </p>
+                            )}
+                          </div>
                         </div>
-                      )}
+                      </div>
                       {dish.description?.[loc] && (
                         <p
                           style={{
@@ -253,8 +205,7 @@ export default async function MenuPage({ params }: Props) {
                         </p>
                       )}
                     </li>
-                  );
-                  })}
+                  ))}
                 </ul>
               </section>
             );
