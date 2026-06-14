@@ -3,12 +3,12 @@
     "skipToContent": "Vai al contenuto principale"
   },
   "Home": {
-    "metaDescription": "Cucina plant-based italo-giapponese-medio orientale ad Ari, Bangkok. Tigelle, carbonara, takoyaki, nasi goreng e altro.",
+    "metaDescription": "Cucina italiana plant-based ad Ari, Bangkok — nata da una vita di viaggi e buon cibo.",
     "headline": "SVOLTA",
-    "tagline": "Radici italiane. Viaggi globali. Cucina a Bangkok.",
+    "tagline": "Radici italiane. Tavola globale. Bangkok.",
     "heroCta": "Vedi il menu",
     "conceptSectionTitle": "Da dove viene tutto questo",
-    "conceptTeaser": "Tigelle dall'Emilia, takoyaki da Osaka, nasi goreng da ogni dove. Plant-based senza prediche.",
+    "conceptTeaser": "Tigelle dall'Emilia. Takoyaki da Osaka. Nasi goreng da ogni dove nel mezzo. Italiani nell'anima, irrequieti per scelta.",
     "conceptCta": "La nostra storia",
     "menuSectionTitle": "In tavola",
     "menuTeaser": "Dodici piatti da quattro continenti. Tagliatelle al ragù, carbonara vegana, okonomiyaki, melanzana al miso — tutto plant-based, niente di timido.",
@@ -28,14 +28,14 @@
   },
   "MenuPage": {
     "title": "Menu",
-    "metaDescription": "Il menu di SVOLTA — pasta italiana, street food giapponese, hummus e altro. Plant-based, senza etichette.",
+    "metaDescription": "Il menu di SVOLTA — pasta italiana plant-based, street food globale, mezze. Senza etichette.",
     "intro": "Dodici piatti da quattro continenti. Il menu cambia con le stagioni — quello che vedi oggi potrebbe non esserci la settimana prossima.",
     "noItems": "Il menu è in aggiornamento. Torna presto."
   },
   "ConceptPage": {
     "title": "L'idea",
-    "metaDescription": "La storia dietro SVOLTA — una cucina plant-forward a Bangkok nata da 35 paesi di mangiare bene.",
-    "intro": "SVOLTA è quello che dice: un cambio di rotta. Dopo 35 paesi e quattro città, questo è il cibo che è rimasto.",
+    "metaDescription": "La storia dietro SVOLTA — una cucina italiana plant-forward a Bangkok, nata da una vita di buon cibo.",
+    "intro": "SVOLTA è quello che dice: un cambio di rotta. Una vita di viaggi, quattro città, una cucina.",
     "section1Title": "Da dove viene il cibo",
     "section1Body": "Tigelle dall'Emilia. Takoyaki da Osaka. Nasi goreng dal Sudest asiatico. Hummus e baba ganoush dal Levante. Il menu è una mappa di dove abbiamo mangiato bene.",
     "section2Title": "Plant-based, senza prediche",
@@ -79,7 +79,7 @@
     "cta": "Torna alla home"
   },
   "Footer": {
-    "tagline": "Cucina plant-based italo-giapponese-medio orientale. Ari, Bangkok.",
+    "tagline": "Cucina italiana plant-based, forgiata dai viaggi. Ari, Bangkok.",
     "rights": "© {year} SVOLTA. Tutti i diritti riservati."
   },
   "Allergens": {
