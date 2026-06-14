@@ -3,12 +3,12 @@
     "skipToContent": "Skip to main content"
   },
   "Home": {
-    "metaDescription": "Plant-based Italian-Japanese-Middle Eastern kitchen in Ari, Bangkok. Tigelle, carbonara, takoyaki, nasi goreng and more.",
+    "metaDescription": "Plant-based Italian kitchen in Ari, Bangkok — born from a life of travel and eating well.",
     "headline": "SVOLTA",
-    "tagline": "Italian roots. Global travels. Bangkok kitchen.",
+    "tagline": "Italian roots. Global table. Bangkok.",
     "heroCta": "See the menu",
     "conceptSectionTitle": "Where this comes from",
-    "conceptTeaser": "Tigelle from Emilia, takoyaki from Osaka, nasi goreng from everywhere. Plant-based without the lecture.",
+    "conceptTeaser": "Tigelle from Emilia. Takoyaki from Osaka. Nasi goreng from everywhere in between. Italian at heart, restless by choice.",
     "conceptCta": "Our story",
     "menuSectionTitle": "On the table",
     "menuTeaser": "Twelve dishes from four continents. Tagliatelle al ragù, vegan carbonara, okonomiyaki, miso aubergine — all plant-based, none of them shy.",
@@ -28,14 +28,14 @@
   },
   "MenuPage": {
     "title": "Menu",
-    "metaDescription": "SVOLTA menu — Italian pasta, Japanese street food, Middle Eastern dips and more. Plant-based, no preaching.",
+    "metaDescription": "SVOLTA menu — plant-based Italian pasta, global street food, mezze. No labels.",
     "intro": "Twelve dishes from four continents. The menu changes with the seasons — what you see today may not be here next week.",
     "noItems": "The menu is being updated. Come back soon."
   },
   "ConceptPage": {
     "title": "The idea",
-    "metaDescription": "The story behind SVOLTA — a plant-forward kitchen in Bangkok born from 35 countries of eating well.",
-    "intro": "SVOLTA means 'turn' in Italian. After 35 countries and four cities, this is the food that stayed with us.",
+    "metaDescription": "The story behind SVOLTA — a plant-forward Italian kitchen in Bangkok, born from a life of eating well.",
+    "intro": "SVOLTA means 'turn' in Italian. A life of travel, four cities, one kitchen.",
     "section1Title": "Where the food comes from",
     "section1Body": "Tigelle from Emilia. Takoyaki from Osaka. Nasi goreng from Southeast Asia. Hummus and baba ganoush from the Levant. The menu is a map of where we've eaten well.",
     "section2Title": "Plant-based, without the lecture",
@@ -79,8 +79,18 @@
     "cta": "Back to home"
   },
   "Footer": {
-    "tagline": "Italian-Japanese-Middle Eastern plant-based kitchen. Ari, Bangkok.",
+    "tagline": "Plant-based Italian kitchen, shaped by travel. Ari, Bangkok.",
     "rights": "© {year} SVOLTA. All rights reserved."
+  },
+  "Allergens": {
+    "Gluten": "Gluten",
+    "Soy": "Soy",
+    "Tree nuts": "Tree nuts",
+    "Peanuts": "Peanuts",
+    "Sesame": "Sesame",
+    "Celery": "Celery",
+    "Mustard": "Mustard",
+    "Lupin": "Lupin"
   },
   "MenuCategories": {
     "antipasto": "Starter",

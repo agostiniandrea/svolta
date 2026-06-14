@@ -119,12 +119,13 @@ export default async function HomePage({ params }: Props) {
               {t("conceptCta")} →
             </Link>
           </div>
-          {/* Replace div with next/image once food photo is available */}
+          {/* Photo placeholder — swap style for next/image when real photo is ready */}
           <figure
             aria-hidden="true"
             style={{
               margin: 0,
-              background: "var(--color-cream)",
+              background:
+                "linear-gradient(135deg, color-mix(in srgb, var(--color-forest) 18%, var(--color-card)) 0%, color-mix(in srgb, var(--color-forest) 10%, var(--color-card)) 100%)",
               borderRadius: "var(--radius-lg)",
               aspectRatio: "4/3",
               minHeight: "16rem",
@@ -228,12 +229,13 @@ export default async function HomePage({ params }: Props) {
               {t("locationCta")} →
             </Link>
           </div>
-          {/* Replace div with next/image once location photo is available */}
+          {/* Photo placeholder — swap style for next/image when real photo is ready */}
           <figure
             aria-hidden="true"
             style={{
               margin: 0,
-              background: "rgba(255,255,255,0.08)",
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(255,255,255,0.1)",
               borderRadius: "var(--radius-lg)",
               aspectRatio: "16/9",
               minHeight: "12rem",

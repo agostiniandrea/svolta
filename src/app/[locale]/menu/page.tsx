@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { client } from "@/sanity/client";
@@ -20,6 +21,7 @@ export default async function MenuPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "MenuPage" });
   const tCat = await getTranslations({ locale, namespace: "MenuCategories" });
+  const tAllergen = await getTranslations({ locale, namespace: "Allergens" });
 
   const menu = await client.fetch<ActiveMenu | null>(
     activeMenuQuery,
@@ -75,10 +77,7 @@ export default async function MenuPage({ params }: Props) {
         </p>
       </header>
 
-      <div
-        className="grid gap-10"
-        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(20rem, 1fr))" }}
-      >
+      <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
         {categories
           .filter((cat) => byCategory[cat].length > 0)
           .map((cat) => {
@@ -91,7 +90,7 @@ export default async function MenuPage({ params }: Props) {
                     fontFamily: "var(--font-serif)",
                     fontSize: "var(--text-xl)",
                     color: "var(--color-ink)",
-                    marginBottom: "1rem",
+                    marginBottom: "1.25rem",
                     paddingBottom: "0.5rem",
                     borderBottom:
                       "1px solid color-mix(in srgb, var(--color-ink) 12%, transparent)",
@@ -105,38 +104,99 @@ export default async function MenuPage({ params }: Props) {
                     listStyle: "none",
                     margin: 0,
                     padding: 0,
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "1.25rem",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fill, minmax(18rem, 1fr))",
+                    gap: "1.5rem",
+                    alignItems: "start",
                   }}
                 >
                   {dishes.map((dish) => (
                     <li key={dish._id}>
                       <div
                         style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "baseline",
-                          gap: "1rem",
-                          marginBottom: "0.2rem",
+                          position: "relative",
+                          aspectRatio: "3/2",
+                          minHeight: "10rem",
+                          borderRadius: "var(--radius-lg)",
+                          overflow: "hidden",
+                          marginBottom: "0.6rem",
+                          background: dish.imageUrl
+                            ? "var(--color-card)"
+                            : "var(--color-forest)",
                         }}
                       >
-                        <p style={{ fontWeight: 600, color: "var(--color-ink)", margin: 0 }}>
-                          {dish.name[loc] ?? dish.name.en ?? ""}
-                        </p>
-                        {dish.price != null && (
-                          <p
+                        {dish.imageUrl && (
+                          <Image
+                            src={dish.imageUrl}
+                            alt={dish.name[loc] ?? dish.name.en ?? ""}
+                            fill
+                            style={{ objectFit: "cover" }}
+                            sizes="(max-width: 640px) 100vw, 33vw"
+                          />
+                        )}
+                        {!dish.imageUrl && (
+                          <div
                             style={{
-                              fontWeight: 600,
-                              color: "var(--color-forest)",
-                              fontSize: "var(--text-sm)",
-                              whiteSpace: "nowrap",
-                              margin: 0,
+                              position: "absolute",
+                              inset: 0,
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
                             }}
                           >
-                            ฿{dish.price}
-                          </p>
+                            <span
+                              style={{
+                                fontFamily: "var(--font-serif)",
+                                fontSize: "var(--text-2xl)",
+                                color: "rgba(255,255,255,0.18)",
+                                letterSpacing: "0.35em",
+                                fontWeight: 400,
+                                userSelect: "none",
+                              }}
+                            >
+                              SVOLTA
+                            </span>
+                          </div>
                         )}
+                        <div
+                          style={{
+                            position: "absolute",
+                            inset: 0,
+                            background: dish.imageUrl
+                              ? "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 55%, transparent 100%)"
+                              : "linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 55%)",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "flex-end",
+                            padding: "1rem 1.1rem",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "baseline",
+                              gap: "0.75rem",
+                            }}
+                          >
+                            <p style={{ fontWeight: 600, color: "#fff", margin: 0 }}>
+                              {dish.name[loc] ?? dish.name.en ?? ""}
+                            </p>
+                            {dish.price != null && (
+                              <p
+                                style={{
+                                  fontWeight: 600,
+                                  color: "rgba(255,255,255,0.85)",
+                                  fontSize: "var(--text-sm)",
+                                  whiteSpace: "nowrap",
+                                  margin: 0,
+                                }}
+                              >
+                                ฿{dish.price}
+                              </p>
+                            )}
+                          </div>
+                        </div>
                       </div>
                       {dish.description?.[loc] && (
                         <p
@@ -158,7 +218,13 @@ export default async function MenuPage({ params }: Props) {
                             letterSpacing: "0.02em",
                           }}
                         >
-                          {dish.allergens.join(", ")}
+                          {dish.allergens
+                            .map((a) =>
+                              tAllergen(
+                                a as "Gluten" | "Soy" | "Tree nuts" | "Peanuts" | "Sesame" | "Celery" | "Mustard" | "Lupin"
+                              )
+                            )
+                            .join(", ")}
                         </p>
                       )}
                     </li>
