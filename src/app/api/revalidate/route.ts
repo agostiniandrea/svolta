@@ -12,10 +12,10 @@ export async function POST(req: NextRequest) {
   const type: string = body._type ?? "";
 
   if (type === "dish" || type === "menu") {
-    revalidateTag("menu");
+    revalidateTag("menu", {});
   }
   if (type === "settings") {
-    revalidateTag("settings");
+    revalidateTag("settings", {});
   }
 
   return NextResponse.json({ revalidated: true, type });

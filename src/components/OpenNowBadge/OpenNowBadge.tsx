@@ -27,15 +27,12 @@ function isOpenInBangkok(): boolean {
 //   closed → #9a9a9a  (5.7:1 on #1a1a1a)
 export default function OpenNowBadge({ dark = false }: { dark?: boolean }) {
   const t = useTranslations("OpenNow");
-  const [open, setOpen] = useState<boolean | null>(null);
+  const [open, setOpen] = useState(isOpenInBangkok);
 
   useEffect(() => {
-    setOpen(isOpenInBangkok());
     const interval = setInterval(() => setOpen(isOpenInBangkok()), 60000);
     return () => clearInterval(interval);
   }, []);
-
-  if (open === null) return null;
 
   const color = dark
     ? open ? "#6ec6a0" : "#9a9a9a"
