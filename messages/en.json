@@ -41,7 +41,9 @@
     "section2Title": "Plant-based, without the lecture",
     "section2Body": "Every dish happens to be plant-based. We don't lead with that. The carbonara — silken tofu, smoked, creamy — earns its place on its own terms. So does the ragù.",
     "section3Title": "Made in Bangkok",
-    "section3Body": "Thai aubergine under white miso. Coconut gelato in the affogato. Sriracha alongside the fries. The recipes are from everywhere; the ingredients grow here."
+    "section3Body": "Thai aubergine under white miso. Coconut gelato in the affogato. Sriracha alongside the fries. The recipes are from everywhere; the ingredients grow here.",
+    "conceptHeading": "A concept, not a restaurant",
+    "conceptBody": "SVOLTA does not exist. The brief, the brand, the menu and every word on this site are invented — a self-directed project to design a restaurant from scratch and build it properly. If you came looking for dinner in Ari, I'm sorry to disappoint."
   },
   "DeliveryPage": {
     "title": "Delivery",
@@ -62,7 +64,7 @@
     "metaDescription": "Find SVOLTA in Ari, Bangkok — a short walk from BTS Ari station. Opening hours, address and map.",
     "intro": "Come say hello. We're in Ari — a short walk from BTS Ari station.",
     "addressLabel": "Address",
-    "address": "Ari, Phaya Thai, Bangkok 10400",
+    "address": "Ari, Bangkok",
     "phoneLabel": "Phone",
     "emailLabel": "Email",
     "hoursLabel": "Opening hours",
@@ -80,7 +82,8 @@
   },
   "Footer": {
     "tagline": "Plant-based Italian kitchen, shaped by travel. Ari, Bangkok.",
-    "rights": "© {year} SVOLTA. All rights reserved."
+    "rights": "© {year} SVOLTA. All rights reserved.",
+    "conceptNotice": "Concept project — SVOLTA is a fictional restaurant, designed and built as a portfolio piece by Andrea Agostini."
   },
   "Allergens": {
     "Gluten": "Gluten",

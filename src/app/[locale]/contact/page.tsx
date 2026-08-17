@@ -29,14 +29,16 @@ export default async function ContactPage({ params }: Props) {
 
   const loc = locale as "th" | "en" | "it";
 
-  const address =
-    process.env.NEXT_PUBLIC_CONTACT_ADDRESS ||
-    settings?.address ||
-    t("address");
-  const phone =
-    process.env.NEXT_PUBLIC_CONTACT_PHONE || settings?.phone || null;
-  const email =
-    process.env.NEXT_PUBLIC_CONTACT_EMAIL || settings?.email || null;
+  /* Sanity is the single source for contact details. The env vars that used to
+     take priority here are gone on purpose: they silently outranked the CMS, so
+     editing Sanity appeared to do nothing while a stale value lived on in the
+     deployment's settings.
+
+     Phone and email stay optional — SVOLTA is a concept, and a plausible-looking
+     Bangkok number could ring in someone's home. */
+  const address = settings?.address || t("address");
+  const phone = settings?.phone || null;
+  const email = settings?.email || null;
   const hours = settings?.openingHours?.[loc] || t("hours");
 
   return (

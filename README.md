@@ -1,6 +1,8 @@
 # Svolta
 
-Restaurant website for Svolta — a plant-based Italian-fusion restaurant in Bangkok's Ari neighborhood. Built with Next.js and Sanity CMS, with full Thai/English/Italian multilingual support.
+**Concept project.** Svolta is a fictional restaurant — the brief, the brand, the menu and the copy are all invented. Nothing here is a real business, and no part of the site should be read as one.
+
+What it is: a self-directed design and engineering piece — a plant-based Italian-fusion restaurant, set in Bangkok's Ari neighbourhood, built with Next.js and Sanity CMS with full Thai/English/Italian support.
 
 **Live site:** [svolta-bkk.vercel.app](https://svolta-bkk.vercel.app/)
 
@@ -8,7 +10,7 @@ Restaurant website for Svolta — a plant-based Italian-fusion restaurant in Ban
 
 ## Stack
 
-- **Next.js 15** — App Router, server components, dynamic metadata
+- **Next.js 16** — App Router, server components, dynamic metadata
 - **Sanity** — headless CMS for menu, dishes, and site settings
 - **next-intl** — URL-based i18n across Thai (`/th`), English (`/en`), and Italian (`/it`)
 - **Tailwind CSS + styled-components**

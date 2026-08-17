@@ -5,6 +5,10 @@ import path from "path";
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
+  /* The dev-only badge sits bottom-left, exactly where the concept notice in
+     the footer ends up. It only ever showed in development, but it covered the
+     one line on the site that has to stay readable while working on it. */
+  devIndicators: false,
   images: {
     remotePatterns: [
       {

@@ -97,6 +97,42 @@ export default async function ConceptPage({ params }: Props) {
           </dl>
         </div>
       </section>
+
+      {/* Everything above is written in character. This is where it stops:
+          the page about the idea is the natural place to say the idea is all
+          there is. */}
+      <section
+        aria-labelledby="concept-disclosure"
+        className="mx-auto px-6"
+        style={{
+          maxWidth: "var(--max-w-container)",
+          paddingBottom: "var(--spacing-section)",
+        }}
+      >
+        <div
+          data-testid="concept-disclosure"
+          style={{
+            borderLeft: "3px solid var(--color-forest)",
+            maxWidth: "42rem",
+            paddingLeft: "1.5rem",
+          }}
+        >
+          <h2
+            id="concept-disclosure"
+            style={{
+              color: "var(--color-forest)",
+              fontFamily: "var(--font-serif)",
+              fontSize: "var(--text-2xl)",
+              marginBottom: "0.75rem",
+            }}
+          >
+            {t("conceptHeading")}
+          </h2>
+          <p style={{ color: "var(--color-ink-soft)", lineHeight: 1.8, margin: 0 }}>
+            {t("conceptBody")}
+          </p>
+        </div>
+      </section>
     </>
   );
 }
