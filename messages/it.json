@@ -41,7 +41,9 @@
     "section2Title": "Plant-based, senza prediche",
     "section2Body": "Ogni piatto in menu capita di essere plant-based. Non lo mettiamo in evidenza. La carbonara — tofu setoso, affumicato, cremoso — si guadagna il posto da sola. Come il ragù.",
     "section3Title": "Fatto a Bangkok",
-    "section3Body": "Melanzana thai sotto miso bianco. Gelato al cocco nell'affogato. Sriracha con le patate fritte. Le ricette vengono da tutto il mondo; gli ingredienti crescono qui."
+    "section3Body": "Melanzana thai sotto miso bianco. Gelato al cocco nell'affogato. Sriracha con le patate fritte. Le ricette vengono da tutto il mondo; gli ingredienti crescono qui.",
+    "conceptHeading": "Un concept, non un ristorante",
+    "conceptBody": "SVOLTA non esiste. Il brief, il marchio, il menu e ogni parola di questo sito sono inventati: un progetto personale per disegnare un ristorante da zero e costruirlo come si deve. Se cercavi dove cenare ad Ari, mi dispiace deluderti."
   },
   "DeliveryPage": {
     "title": "Delivery",
@@ -80,7 +82,8 @@
   },
   "Footer": {
     "tagline": "Cucina italiana plant-based, forgiata dai viaggi. Ari, Bangkok.",
-    "rights": "© {year} SVOLTA. Tutti i diritti riservati."
+    "rights": "© {year} SVOLTA. Tutti i diritti riservati.",
+    "conceptNotice": "Progetto concept — SVOLTA è un ristorante immaginario, ideato e sviluppato da Andrea Agostini come lavoro di portfolio."
   },
   "Allergens": {
     "Gluten": "Glutine",

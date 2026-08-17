@@ -31,7 +31,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <JsonLd locale={locale} siteUrl={siteUrl} />
+      <JsonLd siteUrl={siteUrl} />
       <a href="#main-content" className="skip-link">
         {t("skipToContent")}
       </a>

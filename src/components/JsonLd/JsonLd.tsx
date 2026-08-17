@@ -1,35 +1,22 @@
 type Props = {
-  locale: string;
   siteUrl: string;
 };
 
-export default function JsonLd({ locale, siteUrl }: Props) {
+/* SVOLTA is a concept: the restaurant does not exist.
+ *
+ * This used to emit schema.org/Restaurant with an address, opening hours and a
+ * map link, which tells search engines there is a business operating in Ari,
+ * Bangkok — the kind of record that can surface in local results and send a
+ * real person to a real street. WebSite is the honest description of what this
+ * actually is, and it keeps the site name and search-friendly identity. */
+export default function JsonLd({ siteUrl }: Props) {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Restaurant",
+    "@type": "WebSite",
     name: "SVOLTA",
-    description: "Plant-based Italian-Japanese-Middle Eastern kitchen in Ari, Bangkok.",
+    description:
+      "Concept restaurant website — a self-directed design and engineering project.",
     url: siteUrl,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Ari",
-      addressLocality: "Bangkok",
-      addressRegion: "Bangkok",
-      postalCode: "10400",
-      addressCountry: "TH",
-    },
-    servesCuisine: ["Italian", "Japanese", "Middle Eastern", "Plant-based"],
-    priceRange: "฿฿",
-    menu: `${siteUrl}/${locale}/menu`,
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        opens: "11:30",
-        closes: "21:00",
-      },
-    ],
-    hasMap: `${siteUrl}/${locale}/contact`,
   };
 
   return (

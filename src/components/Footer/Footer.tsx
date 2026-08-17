@@ -100,6 +100,34 @@ export default async function Footer({ locale }: Props) {
           <p>{t("rights", { year })}</p>
         </div>
       </div>
+
+      {/*
+        SVOLTA is a concept. The site is written as a working restaurant would
+        write it — hours, a map, an open/closed badge — so the one place that
+        breaks character has to be unmissable rather than buried in an About
+        page nobody reaches from /contact.
+
+        Full opacity and a rule above it: this is the line that keeps everything
+        above it honest, so it is not decoration to be dimmed like the copyright.
+      */}
+      <div
+        style={{
+          borderTop: "1px solid rgba(255, 255, 255, 0.12)",
+        }}
+      >
+        <p
+          data-testid="concept-notice"
+          className="mx-auto px-6 py-5"
+          style={{
+            fontSize: "var(--text-xs)",
+            lineHeight: 1.7,
+            maxWidth: "var(--max-w-container)",
+            opacity: 0.85,
+          }}
+        >
+          {t("conceptNotice")}
+        </p>
+      </div>
     </footer>
   );
 }
