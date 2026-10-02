@@ -3,6 +3,7 @@ import { Map } from "@/components";
 import type { Metadata } from "next";
 import { client } from "@/sanity/client";
 import { settingsQuery, type SanitySettings } from "@/sanity/queries";
+import { buildAlternates } from "@/i18n/alternates";
 
 export const revalidate = 3600;
 
@@ -13,7 +14,11 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ContactPage" });
-  return { title: t("title"), description: t("metaDescription") };
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: buildAlternates(locale, "/contact"),
+  };
 }
 
 export default async function ContactPage({ params }: Props) {
