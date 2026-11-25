@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 
 const pages = ["", "/menu", "/concept", "/delivery", "/contact"];
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://svolta.it";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://svolta-bkk.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routing.locales.flatMap((locale) =>

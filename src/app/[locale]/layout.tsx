@@ -26,7 +26,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     import(`../../../messages/${locale}.json`).then((m) => m.default),
     getTranslations({ locale, namespace: "Layout" }),
   ]);
-  const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://svolta.it";
+  const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://svolta-bkk.vercel.app";
   const siteUrl = rawSiteUrl.startsWith("http") ? rawSiteUrl : `https://${rawSiteUrl}`;
 
   return (

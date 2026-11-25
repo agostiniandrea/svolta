@@ -1,6 +1,6 @@
 import { routing } from "./routing";
 
-const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://svolta.it";
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://svolta-bkk.vercel.app";
 const siteUrl = rawSiteUrl.startsWith("http") ? rawSiteUrl : `https://${rawSiteUrl}`;
 
 /**

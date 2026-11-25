@@ -84,6 +84,17 @@ jobs:
 
       - name: Auto-merge PR
         if: success()
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr merge --squash --delete-branch "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}"
+        # --auto (rather than an immediate merge) is required here: this step
+        # runs as part of the very job whose completion is the required status
+        # check, so at this point in time that check is still in_progress from
+        # GitHub'"'"'s point of view and an immediate merge is always rejected by
+        # branch protection ("the base branch policy prohibits the merge").
+        # --auto instead just arms auto-merge, which GitHub completes itself
+        # once this job reports success a few seconds later.
+        # continue-on-error keeps a merge-side hiccup (e.g. auto-merge disabled
+        # at the repo level) from failing this job and therefore the required
+        # check itself, now that the actual code checks above already passed.
+        run: gh pr merge --squash --auto --delete-branch "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}"
