@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://svolta.it";
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://svolta-bkk.vercel.app";
 const siteUrl = rawSiteUrl.startsWith("http") ? rawSiteUrl : `https://${rawSiteUrl}`;
 
 export const metadata: Metadata = {

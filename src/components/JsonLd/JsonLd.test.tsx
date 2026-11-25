@@ -8,24 +8,24 @@ function parseSchema(container: HTMLElement) {
 
 describe("JsonLd", () => {
   it("renders a script tag with type application/ld+json", () => {
-    const { container } = renderWithIntl(<JsonLd siteUrl="https://svolta.it" />);
+    const { container } = renderWithIntl(<JsonLd siteUrl="https://svolta-bkk.vercel.app" />);
     expect(
       container.querySelector('script[type="application/ld+json"]'),
     ).toBeInTheDocument();
   });
 
   it("describes a website, not a restaurant", () => {
-    const { container } = renderWithIntl(<JsonLd siteUrl="https://svolta.it" />);
+    const { container } = renderWithIntl(<JsonLd siteUrl="https://svolta-bkk.vercel.app" />);
     const data = parseSchema(container);
     // SVOLTA is a concept. Claiming a Restaurant here would tell search engines
     // a business operates at a real address in Bangkok.
     expect(data["@type"]).toBe("WebSite");
     expect(data.name).toBe("SVOLTA");
-    expect(data.url).toBe("https://svolta.it");
+    expect(data.url).toBe("https://svolta-bkk.vercel.app");
   });
 
   it("publishes no address, opening hours or map for a place that does not exist", () => {
-    const { container } = renderWithIntl(<JsonLd siteUrl="https://svolta.it" />);
+    const { container } = renderWithIntl(<JsonLd siteUrl="https://svolta-bkk.vercel.app" />);
     const data = parseSchema(container);
     expect(data.address).toBeUndefined();
     expect(data.openingHoursSpecification).toBeUndefined();
