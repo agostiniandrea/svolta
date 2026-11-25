@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { client } from "@/sanity/client";
 import { activeMenuQuery, type ActiveMenu, type SanityDish } from "@/sanity/queries";
+import { buildAlternates } from "@/i18n/alternates";
 
 export const revalidate = 3600;
 
@@ -13,7 +14,11 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "MenuPage" });
-  return { title: t("title"), description: t("metaDescription") };
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: buildAlternates(locale, "/menu"),
+  };
 }
 
 export default async function MenuPage({ params }: Props) {
